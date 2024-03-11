@@ -1,7 +1,7 @@
-import PopQuitAccount from "./components/PopQuitAccount";
-import PopNewCard from "./components/PopNewCard";
+import PopQuitAccount from "./components/popups/PopQuitAccount";
+import PopNewCard from "./components/popups/PopNewCard";
 import "./App.css";
-import PopBrowser from "./components/PopBrowse";
+import PopBrowser from "./components/popups/PopBrowse";
 import Header from "./components/Header";
 import Main from "./components/Main";
 
