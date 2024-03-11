@@ -1,389 +1,94 @@
-import Card from "./Card";
+import Column from "./Column";
 
 function Main() {
+  const arrColumnNonTitle = [
+    {
+      cardId: 1,
+      cardTitle: "Web Design",
+      cardName: "Название задачи",
+      cardDate: "30.10.23",
+    },
+    {
+      cardId: 2,
+      cardTitle: "Research",
+      cardName: "Название задачи",
+      cardDate: "30.10.23",
+    },
+    {
+      cardId: 3,
+      cardTitle: "Web Design",
+      cardName: "Название задачи",
+      cardDate: "30.10.23",
+    },
+    {
+      cardId: 4,
+      cardTitle: "Copywriting",
+      cardName: "Название задачи",
+      cardDate: "30.10.23",
+    },
+    {
+      cardId: 5,
+      cardTitle: "Web Design",
+      cardName: "Название задачи",
+      cardDate: "30.10.23",
+    },
+  ];
+
+  const arrNeedDo = [
+    {
+      cardId: 1,
+      cardTitle: "Research",
+      cardName: "Название задачи",
+      cardDate: "30.10.23",
+    },
+  ];
+
+  const arrInWord = [
+    {
+      cardId: 1,
+      cardTitle: "Research",
+      cardName: "Название задачи",
+      cardDate: "30.10.23",
+    },
+    {
+      cardId: 2,
+      cardTitle: "Copywriting",
+      cardName: "Название задачи",
+      cardDate: "30.10.23",
+    },
+    {
+      cardId: 3,
+      cardTitle: "Web Design",
+      cardName: "Название задачи",
+      cardDate: "30.10.23",
+    },
+  ];
+  const arrTest = [
+    {
+      cardId: 1,
+      cardTitle: "Research",
+      cardName: "Название задачи",
+      cardDate: "30.10.23",
+    },
+  ];
+  const arrDone = [
+    {
+      cardId: 1,
+      cardTitle: "Research",
+      cardName: "Название задачи",
+      cardDate: "30.10.23",
+    },
+  ];
   return (
     <main className="main">
       <div className="container">
         <div className="main__block">
           <div className="main__content">
-          <div className="main__column column">
-              <div className="column__title">
-                <p>Без статуса</p>
-              </div>
-              <div className="cards">
-                <Card
-                  cardTitle={"Web Design"}
-                  cardName={"Название задачи"}
-                  cardDate={"30.10.23"}
-                />
-
-                <Card
-                  cardTitle={"Research"}
-                  cardName={"Название задачи"}
-                  cardDate={"30.10.23"}
-                />
-
-                <Card
-                  cardTitle={"Web Design"}
-                  cardName={"Название задачи"}
-                  cardDate={"30.10.23"}
-                />
-
-                <Card
-                  cardTitle={"Copywriting"}
-                  cardName={"Название задачи"}
-                  cardDate={"30.10.23"}
-                />
-
-                <Card
-                  cardTitle={"Web Design"}
-                  cardName={"Название задачи"}
-                  cardDate={"30.10.23"}
-                />
-              </div>
-            </div>
-            <div className="main__column">
-              <div className="column__title">
-                <p>Нужно сделать</p>
-              </div>
-              <div className="cards">
-                <div className="cards__item">
-                  <div className="cards__card card">
-                    <div className="card__group">
-                      <div className="card__theme _green">
-                        <p className="_green">Research</p>
-                      </div>
-                      <a href="#popBrowse" target="_self">
-                        <div className="card__btn">
-                          <div></div>
-                          <div></div>
-                          <div></div>
-                        </div>
-                      </a>
-                    </div>
-                    <div className="card__content">
-                      <a href="" target="_blank">
-                        <h3 className="card__title">Название задачи</h3>
-                      </a>
-                      <div className="card__date">
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          width="13"
-                          height="13"
-                          viewBox="0 0 13 13"
-                          fill="none"
-                        >
-                          <g clipPath="url(#clip0_1_415)">
-                            <path
-                              d="M10.5625 2.03125H2.4375C1.7644 2.03125 1.21875 2.5769 1.21875 3.25V10.5625C1.21875 11.2356 1.7644 11.7812 2.4375 11.7812H10.5625C11.2356 11.7812 11.7812 11.2356 11.7812 10.5625V3.25C11.7812 2.5769 11.2356 2.03125 10.5625 2.03125Z"
-                              stroke="#94A6BE"
-                              strokeWidth="0.8"
-                              strokeLinejoin="round"
-                            />
-                            <path
-                              d="M11.7812 4.0625H1.21875M3.25 1.21875V2.03125V1.21875ZM9.75 1.21875V2.03125V1.21875Z"
-                              stroke="#94A6BE"
-                              strokeWidth="0.8"
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                            />
-                          </g>
-                          <defs>
-                            <clipPath id="clip0_1_415">
-                              <rect width="13" height="13" fill="white" />
-                            </clipPath>
-                          </defs>
-                        </svg>
-                        <p>30.10.23</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="main__column">
-              <div className="column__title">
-                <p>В работе</p>
-              </div>
-              <div className="cards">
-                <div className="cards__item">
-                  <div className="cards__card card">
-                    <div className="card__group">
-                      <div className="card__theme _green">
-                        <p className="_green">Research</p>
-                      </div>
-                      <a href="#popBrowse" target="_self">
-                        <div className="card__btn">
-                          <div></div>
-                          <div></div>
-                          <div></div>
-                        </div>
-                      </a>
-                    </div>
-                    <div className="card__content">
-                      <a href="" target="_blank">
-                        <h3 className="card__title">Название задачи</h3>
-                      </a>
-                      <div className="card__date">
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          width="13"
-                          height="13"
-                          viewBox="0 0 13 13"
-                          fill="none"
-                        >
-                          <g clipPath="url(#clip0_1_415)">
-                            <path
-                              d="M10.5625 2.03125H2.4375C1.7644 2.03125 1.21875 2.5769 1.21875 3.25V10.5625C1.21875 11.2356 1.7644 11.7812 2.4375 11.7812H10.5625C11.2356 11.7812 11.7812 11.2356 11.7812 10.5625V3.25C11.7812 2.5769 11.2356 2.03125 10.5625 2.03125Z"
-                              stroke="#94A6BE"
-                              strokeWidth="0.8"
-                              strokeLinejoin="round"
-                            />
-                            <path
-                              d="M11.7812 4.0625H1.21875M3.25 1.21875V2.03125V1.21875ZM9.75 1.21875V2.03125V1.21875Z"
-                              stroke="#94A6BE"
-                              strokeWidth="0.8"
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                            />
-                          </g>
-                          <defs>
-                            <clipPath id="clip0_1_415">
-                              <rect width="13" height="13" fill="white" />
-                            </clipPath>
-                          </defs>
-                        </svg>
-                        <p>30.10.23</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="cards__item">
-                  <div className="cards__card card">
-                    <div className="card__group">
-                      <div className="card__theme _purple">
-                        <p className="_purple">Copywriting</p>
-                      </div>
-                      <a href="#popBrowse" target="_self">
-                        <div className="card__btn">
-                          <div></div>
-                          <div></div>
-                          <div></div>
-                        </div>
-                      </a>
-                    </div>
-                    <div className="card__content">
-                      <a href="" target="_blank">
-                        <h3 className="card__title">Название задачи</h3>
-                      </a>
-                      <div className="card__date">
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          width="13"
-                          height="13"
-                          viewBox="0 0 13 13"
-                          fill="none"
-                        >
-                          <g clipPath="url(#clip0_1_415)">
-                            <path
-                              d="M10.5625 2.03125H2.4375C1.7644 2.03125 1.21875 2.5769 1.21875 3.25V10.5625C1.21875 11.2356 1.7644 11.7812 2.4375 11.7812H10.5625C11.2356 11.7812 11.7812 11.2356 11.7812 10.5625V3.25C11.7812 2.5769 11.2356 2.03125 10.5625 2.03125Z"
-                              stroke="#94A6BE"
-                              strokeWidth="0.8"
-                              strokeLinejoin="round"
-                            />
-                            <path
-                              d="M11.7812 4.0625H1.21875M3.25 1.21875V2.03125V1.21875ZM9.75 1.21875V2.03125V1.21875Z"
-                              stroke="#94A6BE"
-                              strokeWidth="0.8"
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                            />
-                          </g>
-                          <defs>
-                            <clipPath id="clip0_1_415">
-                              <rect width="13" height="13" fill="white" />
-                            </clipPath>
-                          </defs>
-                        </svg>
-                        <p>30.10.23</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="cards__item">
-                  <div className="cards__card card">
-                    <div className="card__group">
-                      <div className="card__theme _orange">
-                        <p className="_orange">Web Design</p>
-                      </div>
-                      <a href="#popBrowse" target="_self">
-                        <div className="card__btn">
-                          <div></div>
-                          <div></div>
-                          <div></div>
-                        </div>
-                      </a>
-                    </div>
-                    <div className="card__content">
-                      <a href="" target="_blank">
-                        <h3 className="card__title">Название задачи</h3>
-                      </a>
-                      <div className="card__date">
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          width="13"
-                          height="13"
-                          viewBox="0 0 13 13"
-                          fill="none"
-                        >
-                          <g clipPath="url(#clip0_1_415)">
-                            <path
-                              d="M10.5625 2.03125H2.4375C1.7644 2.03125 1.21875 2.5769 1.21875 3.25V10.5625C1.21875 11.2356 1.7644 11.7812 2.4375 11.7812H10.5625C11.2356 11.7812 11.7812 11.2356 11.7812 10.5625V3.25C11.7812 2.5769 11.2356 2.03125 10.5625 2.03125Z"
-                              stroke="#94A6BE"
-                              strokeWidth="0.8"
-                              strokeLinejoin="round"
-                            />
-                            <path
-                              d="M11.7812 4.0625H1.21875M3.25 1.21875V2.03125V1.21875ZM9.75 1.21875V2.03125V1.21875Z"
-                              stroke="#94A6BE"
-                              strokeWidth="0.8"
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                            />
-                          </g>
-                          <defs>
-                            <clipPath id="clip0_1_415">
-                              <rect width="13" height="13" fill="white" />
-                            </clipPath>
-                          </defs>
-                        </svg>
-                        <p>30.10.23</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="main__column">
-              <div className="column__title">
-                <p>Тестирование</p>
-              </div>
-              <div className="cards">
-                <div className="cards__item">
-                  <div className="cards__card card">
-                    <div className="card__group">
-                      <div className="card__theme _green">
-                        <p className="_green">Research</p>
-                      </div>
-                      <a href="#popBrowse" target="_self">
-                        <div className="card__btn">
-                          <div></div>
-                          <div></div>
-                          <div></div>
-                        </div>
-                      </a>
-                    </div>
-                    <div className="card__content">
-                      <a href="" target="_blank">
-                        <h3 className="card__title">Название задачи</h3>
-                      </a>
-                      <div className="card__date">
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          width="13"
-                          height="13"
-                          viewBox="0 0 13 13"
-                          fill="none"
-                        >
-                          <g clipPath="url(#clip0_1_415)">
-                            <path
-                              d="M10.5625 2.03125H2.4375C1.7644 2.03125 1.21875 2.5769 1.21875 3.25V10.5625C1.21875 11.2356 1.7644 11.7812 2.4375 11.7812H10.5625C11.2356 11.7812 11.7812 11.2356 11.7812 10.5625V3.25C11.7812 2.5769 11.2356 2.03125 10.5625 2.03125Z"
-                              stroke="#94A6BE"
-                              strokeWidth="0.8"
-                              strokeLinejoin="round"
-                            />
-                            <path
-                              d="M11.7812 4.0625H1.21875M3.25 1.21875V2.03125V1.21875ZM9.75 1.21875V2.03125V1.21875Z"
-                              stroke="#94A6BE"
-                              strokeWidth="0.8"
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                            />
-                          </g>
-                          <defs>
-                            <clipPath id="clip0_1_415">
-                              <rect width="13" height="13" fill="white" />
-                            </clipPath>
-                          </defs>
-                        </svg>
-                        <p>30.10.23</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="main__column">
-              <div className="column__title">
-                <p>Готово</p>
-              </div>
-              <div className="cards">
-                <div className="cards__item">
-                  <div className="cards__card card">
-                    <div className="card__group">
-                      <div className="card__theme _green">
-                        <p className="_green">Research</p>
-                      </div>
-                      <a href="#popBrowse" target="_self">
-                        <div className="card__btn">
-                          <div></div>
-                          <div></div>
-                          <div></div>
-                        </div>
-                      </a>
-                    </div>
-                    <div className="card__content">
-                      <a href="" target="_blank">
-                        <h3 className="card__title">Название задачи</h3>
-                      </a>
-                      <div className="card__date">
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          width="13"
-                          height="13"
-                          viewBox="0 0 13 13"
-                          fill="none"
-                        >
-                          <g clipPath="url(#clip0_1_415)">
-                            <path
-                              d="M10.5625 2.03125H2.4375C1.7644 2.03125 1.21875 2.5769 1.21875 3.25V10.5625C1.21875 11.2356 1.7644 11.7812 2.4375 11.7812H10.5625C11.2356 11.7812 11.7812 11.2356 11.7812 10.5625V3.25C11.7812 2.5769 11.2356 2.03125 10.5625 2.03125Z"
-                              stroke="#94A6BE"
-                              strokeWidth="0.8"
-                              strokeLinejoin="round"
-                            />
-                            <path
-                              d="M11.7812 4.0625H1.21875M3.25 1.21875V2.03125V1.21875ZM9.75 1.21875V2.03125V1.21875Z"
-                              stroke="#94A6BE"
-                              strokeWidth="0.8"
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                            />
-                          </g>
-                          <defs>
-                            <clipPath id="clip0_1_415">
-                              <rect width="13" height="13" fill="white" />
-                            </clipPath>
-                          </defs>
-                        </svg>
-                        <p>30.10.23</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+            <Column columnTitle={"Без названия"} arr={arrColumnNonTitle} />
+            <Column columnTitle={"Нужно сделать"} arr={arrNeedDo} />
+            <Column columnTitle={"В работе"} arr={arrInWord} />
+            <Column columnTitle={"Тестирование"} arr={arrTest} />
+            <Column columnTitle={"Готово"} arr={arrDone} />
           </div>
         </div>
       </div>

@@ -1,10 +1,20 @@
 function Card({ cardTitle, cardName, cardDate }) {
+  const getClassName = (title) => {
+    switch (title.toLowerCase()) {
+      case "copywriting":
+        return "_purple";
+      case "research":
+        return "_green";
+      default:
+        return "_orange"; // Default class if none of the above matches
+    }
+  };
   return (
     <div className="cards__item">
       <div className="cards__card card">
         <div className="card__group">
-          <div className="card__theme _orange">
-            <p className="_orange">{cardTitle}</p>
+          <div className={`card__theme ${getClassName(cardTitle)}`}>
+            <p className={getClassName(cardTitle)}>{cardTitle}</p>
           </div>
           <a href="#popBrowse" target="_self">
             <div className="card__btn">
