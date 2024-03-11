@@ -7,15 +7,13 @@ import Main from "./components/Main";
 
 function App() {
   return (
-    <>
-      <div className="wrapper">
-        <PopQuitAccount />
-        <PopNewCard />
-        <PopBrowser />
-        <Header />
-        <Main />
-      </div>
-    </>
+    <div className="wrapper">
+      <PopQuitAccount />
+      <PopNewCard />
+      <PopBrowser />
+      <Header />
+      <Main />
+    </div>
   );
 }
 
