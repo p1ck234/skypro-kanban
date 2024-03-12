@@ -2,8 +2,8 @@ import PopQuitAccount from "./components/popups/PopQuitAccount";
 import PopNewCard from "./components/popups/PopNewCard";
 import "./App.css";
 import PopBrowser from "./components/popups/PopBrowse";
-import Header from "./components/Header";
-import Main from "./components/Main";
+import Header from "./components/header/Header";
+import Main from "./components/main/Main";
 
 function App() {
   return (

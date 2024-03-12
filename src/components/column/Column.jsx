@@ -1,4 +1,4 @@
-import Card from "./Card";
+import Card from "../card/Card";
 
 function Column({ arr }) {
   const columnTitle = arr.length > 0 ? arr[0].column : "Нет названия";
