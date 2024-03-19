@@ -6,10 +6,7 @@ const PopDrowdown = () => {
     setIsOpen((prevState) => !prevState);
   };
   return (
-    <nav className="header__nav">
-      <button className="header__btn-main-new _hover01" id="btnMainNew">
-        <a href="#popNewCard">Создать новую задачу</a>
-      </button>
+    <div>
       <a
         onClick={toggleDropdown}
         href="#user-set-target"
@@ -30,7 +27,7 @@ const PopDrowdown = () => {
           </button>
         </div>
       )}
-    </nav>
+    </div>
   );
 };
 

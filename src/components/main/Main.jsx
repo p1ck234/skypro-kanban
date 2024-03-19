@@ -1,7 +1,6 @@
-import { allCards } from "../../data";
 import Column from "../column/Column";
 
-function Main() {
+function Main({ cards }) {
   const statusList = [
     "Без статуса",
     "Нужно сделать",
@@ -16,8 +15,8 @@ function Main() {
           <div className="main__content">
             {statusList.map((status) => (
               <Column
-                key={status.id}
-                arr={allCards.filter((card) => card.status === status)}
+                key={status}
+                arr={cards.filter((card) => card.status === status)}
               />
             ))}
           </div>

@@ -1,6 +1,6 @@
 import PopDrowdown from "../popups/PopDropdown";
 
-function Header() {
+function Header({ onCardAdd }) {
   return (
     <header className="header">
       <div className="container">
@@ -15,7 +15,16 @@ function Header() {
               <img src="images/logo_dark.png" alt="logo" />
             </a>
           </div>
-          <PopDrowdown />
+          <nav className="header__nav">
+            <button
+              onClick={onCardAdd}
+              className="header__btn-main-new _hover01"
+              id="btnMainNew"
+            >
+              <a href="#">Создать новую задачу</a>
+            </button>
+            <PopDrowdown onCardAdd={onCardAdd} />
+          </nav>
         </div>
       </div>
     </header>
