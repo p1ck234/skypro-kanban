@@ -2,24 +2,24 @@ import { allCards } from "../../data";
 import Column from "../column/Column";
 
 function Main() {
+  const statusList = [
+    "Без статуса",
+    "Нужно сделать",
+    "В работе",
+    "Тестирование",
+    "Готово",
+  ];
   return (
     <main className="main">
       <div className="container">
         <div className="main__block">
           <div className="main__content">
-            <Column
-              arr={allCards.filter((card) => card.status === "Без статуса")}
-            />
-            <Column
-              arr={allCards.filter((card) => card.status === "Нужно сделать")}
-            />
-            <Column
-              arr={allCards.filter((card) => card.status === "В работе")}
-            />
-            <Column
-              arr={allCards.filter((card) => card.status === "Тестирование")}
-            />
-            <Column arr={allCards.filter((card) => card.status === "Готово")} />
+            {statusList.map((status) => (
+              <Column
+                key={status.id}
+                arr={allCards.filter((card) => card.status === status)}
+              />
+            ))}
           </div>
         </div>
       </div>
