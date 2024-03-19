@@ -10,10 +10,10 @@ function Column({ arr }) {
       <div className="cards">
         {arr.map((el) => (
           <Card
-            key={el.cardId}
-            cardTitle={el.cardTitle}
-            cardName={el.cardName}
-            cardDate={el.cardDate}
+            key={el.id}
+            cardTitle={el.theme}
+            cardName={el.title}
+            cardDate={el.date}
           />
         ))}
       </div>
