@@ -1,3 +1,5 @@
+import PopDrowdown from "../popups/PopDropdown";
+
 function Header() {
   return (
     <header className="header">
@@ -13,7 +15,8 @@ function Header() {
               <img src="images/logo_dark.png" alt="logo" />
             </a>
           </div>
-          <nav className="header__nav">
+          <PopDrowdown />
+          {/* <nav className="header__nav">
             <button className="header__btn-main-new _hover01" id="btnMainNew">
               <a href="#popNewCard">Создать новую задачу</a>
             </button>
@@ -34,7 +37,7 @@ function Header() {
                 <a href="#popExit">Выйти</a>
               </button>
             </div>
-          </nav>
+          </nav> */}
         </div>
       </div>
     </header>
