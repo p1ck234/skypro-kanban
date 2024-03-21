@@ -6,7 +6,7 @@ function Card({ cardTitle, cardName, cardDate }) {
       case "research":
         return "_green";
       default:
-        return "_orange"; // Default class if none of the above matches
+        return "_orange";
     }
   };
   return (

@@ -9,7 +9,6 @@ const PopDrowdown = () => {
     <div>
       <a
         onClick={toggleDropdown}
-        href="#user-set-target"
         className="header__user _hover02"
       >
         Ivan Ivanov
