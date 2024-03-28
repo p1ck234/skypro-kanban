@@ -1,7 +1,7 @@
-import PopQuitAccount from "./components/popups/PopQuitAccount";
-import PopNewCard from "./components/popups/PopNewCard";
+import PopQuitAccount from "./components/popups/PopQuitAccount/PopQuitAccount";
+import PopNewCard from "./components/popups/PopNewCard/PopNewCard";
 import "./App.css";
-import PopBrowser from "./components/popups/PopBrowse";
+import PopBrowser from "./components/popups/PopBrowse/PopBrowse";
 import Header from "./components/header/Header";
 import Main from "./components/main/Main";
 import { useEffect, useState } from "react";

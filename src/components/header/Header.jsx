@@ -1,5 +1,5 @@
 import { Container } from "../../styles/shared";
-import PopDrowdown from "../popups/PopDropdown";
+import PopDrowdown from "../popups/PopDrowdown/PopDropdown";
 import * as S from "./Header.styled";
 
 function Header({ onCardAdd }) {
