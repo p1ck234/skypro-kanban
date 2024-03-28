@@ -100,4 +100,7 @@ export const CardBtn = styled.div`
     border-radius: 50%;
     background-color: #94a6be;
   }
+  &:target {
+    display: block;
+  }
 `;
