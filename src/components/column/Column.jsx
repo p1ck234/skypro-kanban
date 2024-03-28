@@ -1,7 +1,7 @@
 import Card from "../card/Card";
 
 function Column({ arr }) {
-  const columnTitle = arr.length > 0 ? arr[0].column : "Нет названия";
+  const columnTitle = arr.length > 0 ? arr[0].status : "Нет названия";
   return (
     <div className="main__column column">
       <div className="column__title">

@@ -6,6 +6,7 @@ import Header from "./components/header/Header";
 import Main from "./components/main/Main";
 import { useEffect, useState } from "react";
 import { allCards } from "./data";
+import { GlobalStyle } from "./styles/Global.styled";
 
 function App() {
   const [cards, setCards] = useState(allCards);
@@ -28,19 +29,22 @@ function App() {
   }, []);
 
   return (
-    <div className="wrapper">
-      <Header onCardAdd={onCardAdd} />
-      {isLoading ? (
-        <div>Загрузка...</div>
-      ) : (
-        <>
-          <Main cards={cards} />
-          <PopQuitAccount />
-          <PopNewCard />
-          <PopBrowser />
-        </>
-      )}
-    </div>
+    <>
+      <GlobalStyle />
+      <div className="wrapper">
+        <Header onCardAdd={onCardAdd} />
+        {isLoading ? (
+          <div>Загрузка...</div>
+        ) : (
+          <>
+            <Main cards={cards} />
+            <PopQuitAccount />
+            <PopNewCard />
+            <PopBrowser />
+          </>
+        )}
+      </div>
+    </>
   );
 }
 

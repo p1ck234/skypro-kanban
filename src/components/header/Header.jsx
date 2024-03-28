@@ -1,8 +1,9 @@
 import PopDrowdown from "../popups/PopDropdown";
+import * as S from "./Header.styled";
 
 function Header({ onCardAdd }) {
   return (
-    <header className="header">
+    <S.Header>
       <div className="container">
         <div className="header__block">
           <div className="header__logo _show _light">
@@ -16,18 +17,14 @@ function Header({ onCardAdd }) {
             </a>
           </div>
           <nav className="header__nav">
-            <button
-              onClick={onCardAdd}
-              className="header__btn-main-new _hover01"
-              id="btnMainNew"
-            >
+            <S.HeaderBtn onClick={onCardAdd}>
               <a href="#">Создать новую задачу</a>
-            </button>
+            </S.HeaderBtn>
             <PopDrowdown onCardAdd={onCardAdd} />
           </nav>
         </div>
       </div>
-    </header>
+    </S.Header>
   );
 }
 
