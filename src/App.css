@@ -25,7 +25,7 @@ ul li {
   list-style: none;
 } */
 
-@keyframes card-animation {
+/* @keyframes card-animation {
   0% {
     height: 0;
     opacity: 0;
@@ -34,7 +34,7 @@ ul li {
     height: auto;
     opacity: 1;
   }
-}
+} */
 /* html,
 body {
   width: 100%;
@@ -799,10 +799,10 @@ body {
   z-index: 2;
 }
 
-.main {
+/* .main {
   width: 100%;
   background-color: #eaeef6;
-}
+} */
 /* .main__block {
   width: 100%;
   margin: 0 auto;
@@ -812,11 +812,11 @@ body {
   width: 100%;
   display: flex;
 } */
-.main__column {
+/* .main__column {
   width: 20%;
   margin: 0 auto;
   display: block;
-}
+} */
 
 /* .column__title {
   padding: 0 10px;
@@ -872,7 +872,7 @@ body {
   font-weight: 600;
   line-height: 10px;
 } */
-.card__btn {
+/* .card__btn {
   width: 24px;
   height: 24px;
   display: flex;
@@ -885,7 +885,7 @@ body {
   height: 4px;
   border-radius: 50%;
   background-color: #94a6be;
-}
+} */
 /* .card__title {
   font-size: 14px;
   font-weight: 500;
@@ -925,11 +925,11 @@ body {
   .main__content {
     display: block;
   }
-  /* .main__column {
+  .main__column {
     width: 100%;
     margin: 0 auto;
     display: block;
-  } */
+  }
   .cards {
     width: 100%;
     display: flex;

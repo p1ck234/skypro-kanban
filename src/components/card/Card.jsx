@@ -21,11 +21,11 @@ function Card({ cardTitle, cardName, cardDate }) {
             <p>{cardTitle}</p>
           </S.CardTheme>
           <a href="#popBrowse" target="_self">
-            <div className="card__btn">
+            <S.CardBtn>
               <div></div>
               <div></div>
               <div></div>
-            </div>
+            </S.CardBtn>
           </a>
         </S.CardGroup>
         <S.CardContent>
