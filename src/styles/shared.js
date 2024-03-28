@@ -21,6 +21,40 @@ export const Hover01 = css`
   }
 `;
 
+export const Hover02 = css`
+  &:hover {
+    color: #33399b;
+    ::after {
+      border-left-color: #33399b;
+      border-bottom-color: #33399b;
+    }
+  }
+`;
+
+export const Hover03 = css`
+  &:hover {
+    background-color: #33399b;
+    color: #ffffff;
+    & a {
+      color: #ffffff;
+    }
+  }
+`;
+
+export const AfterHeaderUser = css`
+&::after {
+  content: "";
+  display: block;
+  width: 6px;
+  height: 6px;
+  border-radius: 1px;
+  border-left: 1.9px solid #565eef;
+  border-bottom: 1.9px solid #565eef;
+  transform: rotate(-45deg);
+  margin: -6px 0 0 5px;
+  padding: 0;
+`;
+
 export const HoverCellDay = css`
   &:hover {
     color: #94a6be;

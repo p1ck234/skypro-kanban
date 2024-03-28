@@ -62,23 +62,23 @@ body {
   background-color: #33399b;
 } */
 
-._hover02:hover,
+/* ._hover02:hover,
 .header__user:hover {
   color: #33399b;
-}
-._hover02:hover::after,
+} */
+/* ._hover02:hover::after,
 .header__user:hover::after {
   border-left-color: #33399b;
   border-bottom-color: #33399b;
-}
+} */
 
-._hover03:hover {
+/* ._hover03:hover {
   background-color: #33399b;
   color: #ffffff;
 }
 ._hover03:hover a {
   color: #ffffff;
-}
+} */
 
 .pop-user-set:target,
 .pop-exit:target,
@@ -214,22 +214,22 @@ body {
   justify-content: space-between;
 }
 
-.pop-user-set__name {
+/* .pop-user-set__name {
   color: #000;
   font-size: 14px;
   font-weight: 500;
   line-height: 21px;
   letter-spacing: -0.14px;
   margin-bottom: 4px;
-}
-.pop-user-set__mail {
+} */
+/* .pop-user-set__mail {
   color: #94a6be;
   font-size: 14px;
   line-height: 21px;
   letter-spacing: -0.14px;
   margin-bottom: 10px;
-}
-.pop-user-set__theme {
+} */
+/* .pop-user-set__theme {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -265,8 +265,8 @@ body {
 }
 .pop-user-set__theme input:checked[type="checkbox"]::before {
   left: 12px;
-}
-.pop-user-set button {
+} */
+/* .pop-user-set button {
   width: 72px;
   height: 30px;
   background: transparent;
@@ -276,7 +276,7 @@ body {
 }
 .pop-user-set button a {
   color: #565eef;
-}
+} */
 
 .pop-new-card {
   display: none;
@@ -762,7 +762,7 @@ body {
 /* .header__btn-main-new a {
   color: #ffffff;
 } */
-.header__user {
+/* .header__user {
   height: 20px;
   display: flex;
   flex-wrap: nowrap;
@@ -771,8 +771,8 @@ body {
   font-size: 14px;
   line-height: 20px;
   color: #565eef;
-}
-.header__user::after {
+} */
+/* .header__user::after {
   content: "";
   display: block;
   width: 6px;
@@ -783,8 +783,8 @@ body {
   transform: rotate(-45deg);
   margin: -6px 0 0 5px;
   padding: 0;
-}
-.header__pop-user-set {
+} */
+/* .header__pop-user-set {
   position: absolute;
   top: 61px;
   right: 0;
@@ -797,7 +797,7 @@ body {
   padding: 34px;
   text-align: center;
   z-index: 2;
-}
+} */
 
 /* .main {
   width: 100%;
