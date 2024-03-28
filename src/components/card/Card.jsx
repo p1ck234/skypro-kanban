@@ -14,9 +14,9 @@ function Card({ cardTitle, cardName, cardDate }) {
     }
   };
   return (
-    <S.cards__item>
-      <S.cards__card>
-        <S.card__group>
+    <S.CardItem>
+      <S.CardsBlock>
+        <S.CardGroup>
           <S.CardTheme $theme={getClassName(cardTitle)}>
             <p>{cardTitle}</p>
           </S.CardTheme>
@@ -27,12 +27,12 @@ function Card({ cardTitle, cardName, cardDate }) {
               <div></div>
             </div>
           </a>
-        </S.card__group>
-        <div className="card__content">
+        </S.CardGroup>
+        <S.CardContent>
           <a href="" target="_blank">
-            <h3 className="card__title">{cardName}</h3>
+            <S.CardContentTitle>{cardName}</S.CardContentTitle>
           </a>
-          <div className="card__date">
+          <S.CardContentDate>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="13"
@@ -62,10 +62,10 @@ function Card({ cardTitle, cardName, cardDate }) {
               </defs>
             </svg>
             <p>{cardDate}</p>
-          </div>
-        </div>
-      </S.cards__card>
-    </S.cards__item>
+          </S.CardContentDate>
+        </S.CardContent>
+      </S.CardsBlock>
+    </S.CardItem>
   );
 }
 
