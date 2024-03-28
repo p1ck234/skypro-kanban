@@ -20,3 +20,10 @@ export const Hover01 = css`
     background-color: #33399b;
   }
 `;
+
+export const HoverCellDay = css`
+  &:hover {
+    color: #94a6be;
+    background-color: #eaeef6;
+  }
+`;
