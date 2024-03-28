@@ -1,13 +1,14 @@
 import Card from "../card/Card";
+import { ColumnCards, ColumnTitle, MainColumn } from "../column/Column.styled";
 
 function Column({ arr }) {
   const columnTitle = arr.length > 0 ? arr[0].status : "Нет названия";
   return (
-    <div className="main__column column">
-      <div className="column__title">
+    <MainColumn>
+      <ColumnTitle>
         <p>{columnTitle}</p>
-      </div>
-      <div className="cards">
+      </ColumnTitle>
+      <ColumnCards>
         {arr.map((el) => (
           <Card
             key={el.id}
@@ -16,8 +17,8 @@ function Column({ arr }) {
             cardDate={el.date}
           />
         ))}
-      </div>
-    </div>
+      </ColumnCards>
+    </MainColumn>
   );
 }
 
