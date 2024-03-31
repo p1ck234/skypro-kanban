@@ -5,7 +5,7 @@ import PopBrowser from "./components/popups/PopBrowse/PopBrowse";
 import Header from "./components/header/Header";
 import Main from "./components/main/Main";
 import { useEffect, useState } from "react";
-import { allCards } from "./data";
+import { allCards } from "./lib/data";
 import { GlobalStyle } from "./styles/Global.styled";
 import { Wrapper } from "./styles/shared";
 
