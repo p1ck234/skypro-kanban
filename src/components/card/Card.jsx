@@ -1,3 +1,5 @@
+import * as S from "./Card.styled";
+
 function Card({ cardTitle, cardName, cardDate }) {
   const getClassName = (title) => {
     switch (title.toLowerCase()) {
@@ -5,30 +7,32 @@ function Card({ cardTitle, cardName, cardDate }) {
         return "_purple";
       case "research":
         return "_green";
-      default:
+      case "web design":
         return "_orange";
+      default:
+        return "_gray";
     }
   };
   return (
-    <div className="cards__item">
-      <div className="cards__card card">
-        <div className="card__group">
-          <div className={`card__theme ${getClassName(cardTitle)}`}>
-            <p className={getClassName(cardTitle)}>{cardTitle}</p>
-          </div>
+    <S.CardItem>
+      <S.CardsBlock>
+        <S.CardGroup>
+          <S.CardTheme $theme={getClassName(cardTitle)}>
+            <p>{cardTitle}</p>
+          </S.CardTheme>
           <a href="#popBrowse" target="_self">
-            <div className="card__btn">
+            <S.CardBtn>
               <div></div>
               <div></div>
               <div></div>
-            </div>
+            </S.CardBtn>
           </a>
-        </div>
-        <div className="card__content">
+        </S.CardGroup>
+        <S.CardContent>
           <a href="" target="_blank">
-            <h3 className="card__title">{cardName}</h3>
+            <S.CardContentTitle>{cardName}</S.CardContentTitle>
           </a>
-          <div className="card__date">
+          <S.CardContentDate>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="13"
@@ -58,10 +62,10 @@ function Card({ cardTitle, cardName, cardDate }) {
               </defs>
             </svg>
             <p>{cardDate}</p>
-          </div>
-        </div>
-      </div>
-    </div>
+          </S.CardContentDate>
+        </S.CardContent>
+      </S.CardsBlock>
+    </S.CardItem>
   );
 }
 

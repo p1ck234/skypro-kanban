@@ -1,4 +1,6 @@
 import Column from "../column/Column";
+import { MainBlock, MainBox, MainContent } from "./Main.styled";
+import { Container } from "../../styles/shared";
 
 function Main({ cards }) {
   const statusList = [
@@ -9,20 +11,20 @@ function Main({ cards }) {
     "Готово",
   ];
   return (
-    <main className="main">
-      <div className="container">
-        <div className="main__block">
-          <div className="main__content">
+    <MainBox>
+      <Container>
+        <MainBlock>
+          <MainContent>
             {statusList.map((status) => (
               <Column
                 key={status}
                 arr={cards.filter((card) => card.status === status)}
               />
             ))}
-          </div>
-        </div>
-      </div>
-    </main>
+          </MainContent>
+        </MainBlock>
+      </Container>
+    </MainBox>
   );
 }
 
