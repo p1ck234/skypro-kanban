@@ -1,9 +1,9 @@
 import PopQuitAccount from "../components/popups/PopQuitAccount/PopQuitAccount";
 
-function ExitPage() {
+function ExitPage(setIsAuth) {
   return (
     <>
-      <PopQuitAccount />
+      <PopQuitAccount setIsAuth={setIsAuth} />
     </>
   );
 }

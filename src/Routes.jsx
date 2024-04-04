@@ -18,7 +18,7 @@ const AppRoutes = () => {
       <Routes>
         <Route element={<PrivateRoutes isAuth={isAuth} />}>
           <Route path={paths.MAIN} element={<MainPage />}>
-            <Route path={paths.EXIT} element={<ExitPage />} />
+            <Route path={paths.EXIT} element={<ExitPage setIsAuth={setIsAuth}/>} />
             <Route path={paths.CARD} element={<CardPage />} />
           </Route>
         </Route>
