@@ -9,6 +9,14 @@ import { allCards } from "./lib/data";
 import { GlobalStyle } from "./styles/Global.styled";
 import { Wrapper } from "./styles/shared";
 
+const AppRoutes = {
+  MAIN:"/",
+  EXIT:"/exit",
+  LOGIN:"/login",
+  REGISTER:"/register",
+  CARD:"/card/:id",
+}
+
 function App() {
   const [cards, setCards] = useState(allCards);
   const [isLoading, setIsLoading] = useState(true);
