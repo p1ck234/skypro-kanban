@@ -1,4 +1,6 @@
+import { Link } from "react-router-dom";
 import Calendar from "../../calendar/Calendar";
+import { paths } from "../../../lib/paths";
 
 function PopBrowser() {
   return (
@@ -69,7 +71,7 @@ function PopBrowser() {
                 </button>
               </div>
               <button className="btn-browse__close _btn-bg _hover01">
-                <a href="#">Закрыть</a>
+                <Link to={paths.MAIN}>Закрыть</Link>
               </button>
             </div>
             <div className="pop-browse__btn-edit _hide">

@@ -1,8 +1,8 @@
-import Card from "../components/card/Card";
+import PopBrowser from "../components/popups/PopBrowse/PopBrowse";
 function CardPage() {
   return (
     <>
-      <Card />
+      <PopBrowser />
     </>
   );
 }
