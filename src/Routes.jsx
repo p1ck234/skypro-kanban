@@ -1,10 +1,24 @@
 import { Routes, Route } from "react-router-dom";
+import { paths } from "./lib/paths";
+import MainPage from "./pages/MainPage";
+import ExitPage from "./pages/ExitPage";
+import LoginPage from "./pages/LoginPage";
+import RegistratorPage from "./pages/RegistratorPage";
+import CardPage from "./pages/CardPage";
+import NotFoundPage from "./pages/NotFoundPage";
 
 const AppRoutes = () => {
   return (
     <>
       <Routes>
-        <Route path="{paths.MAIN}" />
+        <Route path={paths.MAIN} element={<MainPage />}>
+          <Route path={paths.EXIT} element={<ExitPage />} />
+        </Route>
+
+        <Route path={paths.CARD} element={<CardPage />} />
+        <Route path={paths.LOGIN} element={<LoginPage />} />
+        <Route path={paths.REGISTER} element={<RegistratorPage />} />
+        <Route path={paths.ERROR} element={<NotFoundPage />} />
       </Routes>
     </>
   );
