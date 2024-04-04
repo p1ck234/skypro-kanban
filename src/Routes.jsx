@@ -8,6 +8,7 @@ import CardPage from "./pages/CardPage";
 import NotFoundPage from "./pages/NotFoundPage";
 import PrivateRoutes from "./PrivateRoutes";
 import { useState } from "react";
+import { Wrapper } from "./styles/shared";
 
 const AppRoutes = () => {
   const [isAuth, setIsAuth] = useState(false);
@@ -15,21 +16,27 @@ const AppRoutes = () => {
 
   return (
     <>
-      <Routes>
-        <Route element={<PrivateRoutes isAuth={isAuth} />}>
-          <Route path={paths.MAIN} element={<MainPage />}>
-            <Route path={paths.EXIT} element={<ExitPage setIsAuth={setIsAuth}/>} />
-            <Route path={paths.CARD} element={<CardPage />} />
+      {" "}
+      <Wrapper>
+        <Routes>
+          <Route element={<PrivateRoutes isAuth={isAuth} />}>
+            <Route path={paths.MAIN} element={<MainPage />}>
+              <Route
+                path={paths.EXIT}
+                element={<ExitPage setIsAuth={setIsAuth} />}
+              />
+              <Route path={paths.CARD} element={<CardPage />} />
+            </Route>
           </Route>
-        </Route>
 
-        <Route
-          path={paths.LOGIN}
-          element={<LoginPage setIsAuth={setIsAuth} />}
-        />
-        <Route path={paths.REGISTER} element={<RegistratorPage />} />
-        <Route path={paths.ERROR} element={<NotFoundPage />} />
-      </Routes>
+          <Route
+            path={paths.LOGIN}
+            element={<LoginPage setIsAuth={setIsAuth} />}
+          />
+          <Route path={paths.REGISTER} element={<RegistratorPage />} />
+          <Route path={paths.ERROR} element={<NotFoundPage />} />
+        </Routes>
+      </Wrapper>
     </>
   );
 };
