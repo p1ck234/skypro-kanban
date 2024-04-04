@@ -8,6 +8,7 @@ import { useEffect, useState } from "react";
 import { allCards } from "./lib/data";
 import { GlobalStyle } from "./styles/Global.styled";
 import { Wrapper } from "./styles/shared";
+import Login from "./components/login/Login";
 
 function App() {
   const [cards, setCards] = useState(allCards);
@@ -33,7 +34,8 @@ function App() {
     <>
       <GlobalStyle />
       <Wrapper>
-        <Header onCardAdd={onCardAdd} />
+        <Login />
+        {/* <Header onCardAdd={onCardAdd} />
         {isLoading ? (
           <div>Загрузка...</div>
         ) : (
@@ -43,7 +45,7 @@ function App() {
             <PopNewCard />
             <PopBrowser />
           </>
-        )}
+        )} */}
       </Wrapper>
     </>
   );
