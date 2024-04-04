@@ -11,6 +11,7 @@ import { useState } from "react";
 
 const AppRoutes = () => {
   const [isAuth, setIsAuth] = useState(false);
+  console.log(isAuth);
 
   return (
     <>

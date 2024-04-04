@@ -14,9 +14,11 @@ import { useNavigate } from "react-router-dom";
 
 function Login({ setIsAuth }) {
   const navigate = useNavigate();
-  const login = () => {};
-  setIsAuth(true);
-  navigate(paths.MAIN);
+  const login = () => {
+    setIsAuth(true);
+    navigate(paths.MAIN);
+  };
+
   return (
     <Wrapper>
       <ContainerSignin>
@@ -38,7 +40,7 @@ function Login({ setIsAuth }) {
                 id="formpassword"
                 placeholder="Пароль"
               />
-              <ModalBtnEnter onClick={login()} type="button" id="btnEnter">
+              <ModalBtnEnter onClick={login} type="button" id="btnEnter">
                 Войти
               </ModalBtnEnter>
               <ModalFormGroup>
