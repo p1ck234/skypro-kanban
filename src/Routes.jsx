@@ -13,9 +13,9 @@ const AppRoutes = () => {
       <Routes>
         <Route path={paths.MAIN} element={<MainPage />}>
           <Route path={paths.EXIT} element={<ExitPage />} />
+          <Route path={paths.CARD} element={<CardPage />} />
         </Route>
 
-        <Route path={paths.CARD} element={<CardPage />} />
         <Route path={paths.LOGIN} element={<LoginPage />} />
         <Route path={paths.REGISTER} element={<RegistratorPage />} />
         <Route path={paths.ERROR} element={<NotFoundPage />} />

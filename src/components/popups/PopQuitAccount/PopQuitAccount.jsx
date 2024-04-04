@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import {
   PopExit,
   PopExitBlock,
@@ -7,6 +8,7 @@ import {
   PopExitForm,
   PopExitTtl,
 } from "./PopQuitAccount.styles";
+import { paths } from "../../../lib/paths";
 
 function PopQuitAccount() {
   return (
@@ -19,10 +21,10 @@ function PopQuitAccount() {
           <form id="formExit" action="#">
             <PopExitForm>
               <PopExitButtonYes id="exitYes">
-                <a href="modal/signin.html">Да, выйти</a>{" "}
+                <Link to={paths.LOGIN}>Да, выйти</Link>
               </PopExitButtonYes>
               <PopExitButtonNo id="exitNo">
-                <a href="main.html">Нет, остаться</a>{" "}
+                <Link to={paths.MAIN}>Нет, остаться</Link>
               </PopExitButtonNo>
             </PopExitForm>
           </form>
