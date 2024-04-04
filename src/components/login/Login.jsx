@@ -37,7 +37,7 @@ function Login() {
               </ModalBtnEnter>
               <ModalFormGroup>
                 <p>Нужно зарегистрироваться?</p>
-                <a href="signup.html">Регистрируйтесь здесь</a>
+                <a href="#">Регистрируйтесь здесь</a>
               </ModalFormGroup>
             </ModalForm>
           </ModalBlock>

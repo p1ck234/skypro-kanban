@@ -43,7 +43,7 @@ function Registrator() {
               </ModalBtnEnter>
               <ModalFormGroup>
                 <p>
-                  Уже есть аккаунт? <a href="signin.html">Войдите здесь</a>
+                  Уже есть аккаунт? <a href="#">Войдите здесь</a>
                 </p>
               </ModalFormGroup>
             </ModalForm>
