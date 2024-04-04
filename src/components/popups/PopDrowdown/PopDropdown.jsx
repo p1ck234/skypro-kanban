@@ -26,9 +26,9 @@ const PopDrowdown = () => {
             <p>Темная тема</p>
             <input type="checkbox" name="checkbox" />
           </PopUserSetTheme>
-          <PopUserButton>
-            <Link to={paths.EXIT}>Выйти</Link>
-          </PopUserButton>
+          <Link to={paths.EXIT}>
+            <PopUserButton>Выйти</PopUserButton>
+          </Link>
         </HeaderPopUserSet>
       )}
     </div>

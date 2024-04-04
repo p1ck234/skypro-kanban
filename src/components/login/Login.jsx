@@ -1,3 +1,4 @@
+import { paths } from "../../lib/paths";
 import { Wrapper } from "../../styles/shared";
 import {
   ContainerSignin,
@@ -9,8 +10,13 @@ import {
   ModalInput,
   ModalTtl,
 } from "./Login.styled";
+import { useNavigate } from "react-router-dom";
 
-function Login() {
+function Login({ setIsAuth }) {
+  const navigate = useNavigate();
+  const login = () => {};
+  setIsAuth(true);
+  navigate(paths.MAIN);
   return (
     <Wrapper>
       <ContainerSignin>
@@ -32,8 +38,8 @@ function Login() {
                 id="formpassword"
                 placeholder="Пароль"
               />
-              <ModalBtnEnter id="btnEnter">
-                <a href="../main.html">Войти</a>
+              <ModalBtnEnter onClick={login()} type="button" id="btnEnter">
+                Войти
               </ModalBtnEnter>
               <ModalFormGroup>
                 <p>Нужно зарегистрироваться?</p>

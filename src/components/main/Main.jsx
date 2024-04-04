@@ -3,7 +3,7 @@ import { MainBlock, MainBox, MainContent } from "./Main.styled";
 import { Container } from "../../styles/shared";
 import Header from "../header/Header";
 
-function Main({ cards, isLoading, onAdd }) {
+function Main({ cards, isLoading, setCards }) {
   const statusList = [
     "Без статуса",
     "Нужно сделать",
@@ -13,7 +13,7 @@ function Main({ cards, isLoading, onAdd }) {
   ];
   return (
     <MainBox>
-      <Header onCardAdd={onAdd} />
+      <Header setCards={setCards} cards={cards} />
       <Container>
         <MainBlock>
           {isLoading ? (
