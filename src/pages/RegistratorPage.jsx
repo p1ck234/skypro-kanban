@@ -1,9 +1,11 @@
+import Registrator from "../components/registrator/Registrator";
+
 function RegistratorPage() {
   return (
-    <div>
-      
-    </div>
-  )
+    <>
+      <Registrator />
+    </>
+  );
 }
 
-export default RegistratorPage
+export default RegistratorPage;

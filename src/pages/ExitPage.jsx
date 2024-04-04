@@ -1,5 +1,11 @@
+import PopQuitAccount from "../components/popups/PopQuitAccount/PopQuitAccount";
+
 function ExitPage() {
-  return <div></div>;
+  return (
+    <>
+      <PopQuitAccount />
+    </>
+  );
 }
 
 export default ExitPage;

@@ -1,5 +1,10 @@
+import Card from "../components/card/Card";
 function CardPage() {
-  return <div></div>;
+  return (
+    <>
+      <Card />
+    </>
+  );
 }
 
 export default CardPage;
