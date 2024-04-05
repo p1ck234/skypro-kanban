@@ -10,7 +10,7 @@ import {
   ModalInput,
   ModalTtl,
 } from "./Login.styled";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 function Login({ setIsAuth }) {
   const navigate = useNavigate();
@@ -45,7 +45,7 @@ function Login({ setIsAuth }) {
               </ModalBtnEnter>
               <ModalFormGroup>
                 <p>Нужно зарегистрироваться?</p>
-                <a href="#">Регистрируйтесь здесь</a>
+                <Link to={paths.REGISTER}>Регистрируйтесь здесь</Link>
               </ModalFormGroup>
             </ModalForm>
           </ModalBlock>

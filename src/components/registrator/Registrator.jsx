@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { Wrapper } from "../../styles/shared";
 import {
   ContainerSignup,
@@ -9,6 +10,7 @@ import {
   ModalInput,
   ModalTtl,
 } from "./Registrator.styled";
+import { paths } from "../../lib/paths";
 
 function Registrator() {
   return (
@@ -43,7 +45,7 @@ function Registrator() {
               </ModalBtnEnter>
               <ModalFormGroup>
                 <p>
-                  Уже есть аккаунт? <a href="#">Войдите здесь</a>
+                  Уже есть аккаунт? <Link to={paths.LOGIN}>Войдите здесь</Link>
                 </p>
               </ModalFormGroup>
             </ModalForm>
