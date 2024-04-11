@@ -9,6 +9,8 @@ const MainPage = ({ user }) => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
+    setIsLoading(true); // Set loading state to true initially
+
     getTasks({ token: user.token })
       .then((response) => {
         setCards(response.tasks);
@@ -16,9 +18,10 @@ const MainPage = ({ user }) => {
       .catch((err) => {
         setError(err.message);
       })
-      .finally(setIsLoading(false));
+      .finally(() => {
+        setIsLoading(false); // Set loading state to false after the promise is resolved or rejected
+      });
   }, [user]);
-
   return (
     <>
       <Main

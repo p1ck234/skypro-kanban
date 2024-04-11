@@ -16,20 +16,24 @@ function Main({ cards, isLoading, setCards, error }) {
       <Header setCards={setCards} cards={cards} />
       <Container>
         <MainBlock>
-          {isLoading && cards ? (
-            <div>Загрузка...</div>
+          {error ? (
+            <p style={{ color: "red", fontSize: 25 }}>
+              Произошла ошибка, попробуйте позже...
+            </p>
           ) : (
             <MainContent>
-              {cards &&
+              {isLoading ? (
+                <p style={{ color: "#94a6be", fontSize: 25 }}>Загрузка...</p>
+              ) : (
                 statusList.map((status) => (
                   <Column
                     key={status}
                     arr={cards.filter((card) => card.status === status)}
                   />
-                ))}
+                ))
+              )}
             </MainContent>
           )}
-          {error && <p style={{ color: "red" }}>Произошла ошибка</p>}
         </MainBlock>
       </Container>
     </MainBox>
