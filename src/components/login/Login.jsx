@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { paths } from "../../lib/paths";
 import { Wrapper } from "../../styles/shared";
 import {
@@ -11,12 +12,22 @@ import {
   ModalTtl,
 } from "./Login.styled";
 import { Link, useNavigate } from "react-router-dom";
+import { authPost } from "../../api";
 
-function Login({ setIsAuth }) {
-  const navigate = useNavigate();
-  const login = () => {
-    setIsAuth(true);
-    navigate(paths.MAIN);
+function Login({ userLogin }) {
+  // const navigate = useNavigate();
+  // const login = () => {
+  //   setIsAuth(true);
+  //   navigate(paths.MAIN);
+  // };
+  const [login, setLogin] = useState("");
+  const [password, setPassword] = useState("");
+
+  const handleLogin = async () => {
+    await authPost(login, password).then((responseData) => {
+      userLogin(responseData.user);
+      // navigate(paths.MAIN);
+    });
   };
 
   return (
@@ -30,18 +41,18 @@ function Login({ setIsAuth }) {
             <ModalForm id="formLogIn" action="#">
               <ModalInput
                 type="text"
-                name="login"
-                id="formlogin"
-                placeholder="Эл. почта"
+                value={login}
+                onChange={(e) => setLogin(e.target.value)}
+                placeholder="Логин"
               />
               <ModalInput
                 type="password"
-                name="password"
-                id="formpassword"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
                 placeholder="Пароль"
               />
-              <ModalBtnEnter onClick={login} type="button" id="btnEnter">
-                Войти
+              <ModalBtnEnter onClick={handleLogin} type="button" id="btnEnter">
+                <Link to={paths.MAIN}>Войти</Link>
               </ModalBtnEnter>
               <ModalFormGroup>
                 <p>Нужно зарегистрироваться?</p>

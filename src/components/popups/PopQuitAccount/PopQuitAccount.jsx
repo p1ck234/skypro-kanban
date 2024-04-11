@@ -11,12 +11,12 @@ import {
 import { paths } from "../../../lib/paths";
 import { useNavigate } from "react-router-dom";
 
-function PopQuitAccount({ setIsAuth }) {
-  const navigate = useNavigate();
-  const login = () => {
-    setIsAuth(true);
-    navigate(paths.MAIN);
-  };
+function PopQuitAccount({ logout }) {
+  // const navigate = useNavigate();
+  // const login = () => {
+  //   setIsAuth(true);
+  //   navigate(paths.MAIN);
+  // };
   return (
     <PopExit id="popExit">
       <PopExitContainer>
@@ -26,10 +26,8 @@ function PopQuitAccount({ setIsAuth }) {
           </PopExitTtl>
           <form id="formExit" action="#">
             <PopExitForm>
-              <PopExitButtonYes id="exitYes">
-                <Link to={paths.LOGIN} onClick={login}>
-                  Да, выйти
-                </Link>
+              <PopExitButtonYes onClick={logout} id="exitYes">
+                <Link to={paths.LOGIN}>Да, выйти</Link>
               </PopExitButtonYes>
               <PopExitButtonNo id="exitNo">
                 <Link to={paths.MAIN}>Нет, остаться</Link>

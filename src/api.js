@@ -1,4 +1,4 @@
-export const getTasks = async (token) => {
+export const getTasks = async ({ token }) => {
   const response = await fetch("https://wedev-api.sky.pro/api/kanban", {
     headers: {
       Authorization: `Bearer ${token}`,
@@ -10,12 +10,12 @@ export const getTasks = async (token) => {
   return data;
 };
 
-export const authPost = async (name, login) => {
-  const response = await fetch("https://wedev-api.sky.pro/api/user", {
+export const authPost = async (login, password) => {
+  const response = await fetch("https://wedev-api.sky.pro/api/user/login", {
     method: "POST",
     body: JSON.stringify({
-      name,
       login,
+      password,
     }),
   });
   const data = await response.json();

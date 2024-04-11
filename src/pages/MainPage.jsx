@@ -3,25 +3,30 @@ import Main from "../components/main/Main";
 import { Outlet } from "react-router-dom";
 import { getTasks } from "../api";
 
-const MainPage = () => {
+const MainPage = ({ user }) => {
   const [cards, setCards] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
-    setTimeout(() => {
-      setIsLoading(false);
-    }, 2000);
-  }, []);
-
-  useEffect(() => {
-    getTasks.then((response) => {
-      setCards(response.tasks);
-    });
-  });
+    getTasks({ token: user.token })
+      .then((response) => {
+        setCards(response.tasks);
+      })
+      .catch((err) => {
+        setError(err.message);
+      })
+      .finally(setIsLoading(false));
+  }, [user]);
 
   return (
     <>
-      <Main cards={cards} isLoading={isLoading} setCards={setCards} />
+      <Main
+        cards={cards}
+        isLoading={isLoading}
+        setCards={setCards}
+        error={error}
+      />
       <Outlet />
     </>
   );

@@ -11,8 +11,22 @@ import {
   ModalTtl,
 } from "./Registrator.styled";
 import { paths } from "../../lib/paths";
+import { useState } from "react";
+import { regPost } from "../../api";
 
-function Registrator() {
+function Registrator({ userLogin }) {
+  const [name, setName] = useState("");
+  const [login, setLogin] = useState("");
+  const [password, setPassword] = useState("");
+  const handleSubmit = (event) => {
+    event.preventDefault();
+  };
+  const handleRegClick = async () => {
+    await regPost(name, login, password).then((responseData) => {
+      userLogin(responseData.user);
+    });
+  };
+
   return (
     <Wrapper>
       <ContainerSignup>
@@ -23,25 +37,26 @@ function Registrator() {
             </ModalTtl>
             <ModalForm id="formLogUp" action="#">
               <ModalInput
+                onSubmit={handleSubmit}
                 type="text"
-                name="first-name"
-                id="first-name"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
                 placeholder="Имя"
               />
               <ModalInput
                 type="text"
-                name="login"
-                id="loginReg"
-                placeholder="Эл. почта"
+                value={login}
+                onChange={(e) => setLogin(e.target.value)}
+                placeholder="Логин"
               />
               <ModalInput
                 type="password"
-                name="password"
-                id="passwordFirst"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
                 placeholder="Пароль"
               />
-              <ModalBtnEnter id="SignUpEnter">
-                <a href="../main.html">Зарегистрироваться</a>{" "}
+              <ModalBtnEnter id="SignUpEnter" onClick={handleRegClick}>
+                <Link to={paths.LOGIN}>Зарегистрироваться</Link>
               </ModalBtnEnter>
               <ModalFormGroup>
                 <p>

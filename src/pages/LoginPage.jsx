@@ -1,8 +1,8 @@
 import Login from "../components/login/Login";
-function LoginPage({ setIsAuth }) {
+function LoginPage({ userLogin }) {
   return (
     <>
-      <Login setIsAuth={setIsAuth} />
+      <Login userLogin={userLogin} />
     </>
   );
 }
