@@ -19,15 +19,31 @@ function Login({ userLogin }) {
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
 
-  const handleLogin = async () => {
+  const handleSubmit = async (event) => {
+    event.preventDefault();
     if (!login.trim() || !password.trim()) {
       setError("Отсутствует одно из полей");
       return;
     }
-    await authPost(login, password).then((responseData) => {
+    try {
+      const responseData = await authPost(login, password);
       userLogin(responseData.user);
-      paths.MAIN;
-    });
+    } catch (error) {
+      if (error.response) {
+        // Если сервер ответил, но с ошибкой
+        if (error.response.status === 400) {
+          alert("Неверные логин или пароль");
+        } else {
+          setError("Ошибка: " + error.response.status);
+        }
+      } else if (error.request) {
+        // Если запрос был сделан, но ответ не был получен
+        setError("Сервер не отвечает");
+      } else {
+        // Возникла другая ошибка
+        setError("Что-то пошло не так: " + error.message);
+      }
+    }
   };
 
   return (
@@ -38,8 +54,7 @@ function Login({ userLogin }) {
             <ModalTtl>
               <h2>Вход</h2>
             </ModalTtl>
-
-            <ModalForm id="formLogIn" action="#">
+            <ModalForm id="formLogIn" onSubmit={handleSubmit}>
               <ModalInput
                 type="text"
                 value={login}
@@ -52,8 +67,8 @@ function Login({ userLogin }) {
                 onChange={(e) => setPassword(e.target.value)}
                 placeholder="Пароль"
               />
-              <ModalBtnEnter onClick={handleLogin} type="button" id="btnEnter">
-                <Link>Войти</Link>
+              <ModalBtnEnter type="submit" id="btnEnter">
+                Войти
               </ModalBtnEnter>
               {error && (
                 <p style={{ color: "red", fontSize: 16, marginBottom: 4 }}>
