@@ -19,17 +19,23 @@ function Registrator({ userLogin }) {
   const [login, setLogin] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
-  const handleSubmit = (event) => {
+
+  const handleSubmit = async (event) => {
     event.preventDefault();
-  };
-  const handleRegClick = async () => {
     if (!login.trim() || !password.trim()) {
       setError("Отсутствует одно из полей");
       return;
     }
-    await regPost(name, login, password).then((responseData) => {
-      userLogin(responseData.user);
-    });
+    try {
+      const response = await regPost(name, login, password);
+      if (response.status === 201) {
+        userLogin(response.data.user);
+      } else {
+        throw new Error(response.statusText);
+      }
+    } catch (error) {
+      setError((prevError) => `${prevError} ${error.message}`);
+    }
   };
 
   return (
@@ -40,9 +46,8 @@ function Registrator({ userLogin }) {
             <ModalTtl>
               <h2>Регистрация</h2>
             </ModalTtl>
-            <ModalForm id="formLogUp" action="#">
+            <ModalForm id="formLogUp" onSubmit={handleSubmit}>
               <ModalInput
-                onSubmit={handleSubmit}
                 type="text"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
@@ -60,10 +65,14 @@ function Registrator({ userLogin }) {
                 onChange={(e) => setPassword(e.target.value)}
                 placeholder="Пароль"
               />
-              <ModalBtnEnter id="SignUpEnter" onClick={handleRegClick}>
-                <Link>Зарегистрироваться</Link>
+              <ModalBtnEnter id="SignUpEnter" type="submit">
+                Зарегистрироваться
               </ModalBtnEnter>
-              {error && <p style={{ color: "red", fontSize: 16, marginBottom:6}}>{error}</p>}
+              {error && (
+                <p style={{ color: "red", fontSize: 16, marginBottom: 6 }}>
+                  {error}
+                </p>
+              )}
               <ModalFormGroup>
                 <p>
                   Уже есть аккаунт? <Link to={paths.LOGIN}>Войдите здесь</Link>
