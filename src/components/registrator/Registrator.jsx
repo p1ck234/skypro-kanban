@@ -18,10 +18,15 @@ function Registrator({ userLogin }) {
   const [name, setName] = useState("");
   const [login, setLogin] = useState("");
   const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
   const handleSubmit = (event) => {
     event.preventDefault();
   };
   const handleRegClick = async () => {
+    if (!login.trim() || !password.trim()) {
+      setError("Отсутствует одно из полей");
+      return;
+    }
     await regPost(name, login, password).then((responseData) => {
       userLogin(responseData.user);
     });
@@ -56,8 +61,9 @@ function Registrator({ userLogin }) {
                 placeholder="Пароль"
               />
               <ModalBtnEnter id="SignUpEnter" onClick={handleRegClick}>
-                <Link to={paths.LOGIN}>Зарегистрироваться</Link>
+                <Link>Зарегистрироваться</Link>
               </ModalBtnEnter>
+              {error && <p style={{ color: "red", fontSize: 16, marginBottom:6}}>{error}</p>}
               <ModalFormGroup>
                 <p>
                   Уже есть аккаунт? <Link to={paths.LOGIN}>Войдите здесь</Link>

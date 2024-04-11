@@ -11,22 +11,17 @@ import {
   ModalInput,
   ModalTtl,
 } from "./Login.styled";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { authPost } from "../../api";
 
 function Login({ userLogin }) {
-  // const navigate = useNavigate();
-  // const login = () => {
-  //   setIsAuth(true);
-  //   navigate(paths.MAIN);
-  // };
   const [login, setLogin] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
 
   const handleLogin = async () => {
     if (!login.trim() || !password.trim()) {
-      setError("Отсутствует логин или пароль");
+      setError("Отсутствует одно из полей");
       return;
     }
     await authPost(login, password).then((responseData) => {
@@ -60,8 +55,11 @@ function Login({ userLogin }) {
               <ModalBtnEnter onClick={handleLogin} type="button" id="btnEnter">
                 <Link>Войти</Link>
               </ModalBtnEnter>
-              {error && <p style={{ color: "red", fontSize: 16, marginBottom:4}}>{error}</p>}
-
+              {error && (
+                <p style={{ color: "red", fontSize: 16, marginBottom: 4 }}>
+                  {error}
+                </p>
+              )}
               <ModalFormGroup>
                 <p>Нужно зарегистрироваться?</p>
                 <Link to={paths.REGISTER}>Регистрируйтесь здесь</Link>
