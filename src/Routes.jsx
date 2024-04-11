@@ -10,14 +10,25 @@ import PrivateRoutes from "./PrivateRoutes";
 import { useState } from "react";
 import { Wrapper } from "./styles/shared";
 
+const checkLS = () => {
+  try {
+    return JSON.parse(localStorage.getItem("user"));
+  } catch {
+    localStorage.removeItem("user")
+    return null;
+  }
+};
+
 const AppRoutes = () => {
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useState(checkLS());
   const navigate = useNavigate();
   const userLogin = (newUser) => {
+    localStorage.setItem("user", JSON.stringify(newUser));
     setUser(newUser);
     navigate(paths.MAIN);
   };
   const logout = () => {
+    localStorage.removeItem("user");
     setUser(null);
     navigate(paths.LOGIN);
   };

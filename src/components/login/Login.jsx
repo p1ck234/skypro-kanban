@@ -22,11 +22,16 @@ function Login({ userLogin }) {
   // };
   const [login, setLogin] = useState("");
   const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
 
   const handleLogin = async () => {
+    if (!login.trim() || !password.trim()) {
+      setError("Отсутствует логин или пароль");
+      return;
+    }
     await authPost(login, password).then((responseData) => {
       userLogin(responseData.user);
-      // navigate(paths.MAIN);
+      paths.MAIN;
     });
   };
 
@@ -38,6 +43,7 @@ function Login({ userLogin }) {
             <ModalTtl>
               <h2>Вход</h2>
             </ModalTtl>
+
             <ModalForm id="formLogIn" action="#">
               <ModalInput
                 type="text"
@@ -52,8 +58,10 @@ function Login({ userLogin }) {
                 placeholder="Пароль"
               />
               <ModalBtnEnter onClick={handleLogin} type="button" id="btnEnter">
-                <Link to={paths.MAIN}>Войти</Link>
+                <Link>Войти</Link>
               </ModalBtnEnter>
+              {error && <p style={{ color: "red", fontSize: 16, marginBottom:4}}>{error}</p>}
+
               <ModalFormGroup>
                 <p>Нужно зарегистрироваться?</p>
                 <Link to={paths.REGISTER}>Регистрируйтесь здесь</Link>
