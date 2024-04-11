@@ -1,18 +1,23 @@
 import { useEffect, useState } from "react";
 import Main from "../components/main/Main";
-import { allCards } from "../lib/data";
 import { Outlet } from "react-router-dom";
+import { getTasks } from "../api";
 
 const MainPage = () => {
-  const [cards, setCards] = useState(allCards);
+  const [cards, setCards] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
-  
   useEffect(() => {
     setTimeout(() => {
       setIsLoading(false);
     }, 2000);
   }, []);
+
+  useEffect(() => {
+    getTasks.then((response) => {
+      setCards(response.tasks);
+    });
+  });
 
   return (
     <>
