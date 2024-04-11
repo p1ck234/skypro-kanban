@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { Hover01, Hover03 } from "../../../styles/shared";
 
 export const PopExit = styled.div`
-  display: none;
+  display: block;
   width: 100%;
   height: 100%;
   min-width: 320px;
@@ -11,9 +11,6 @@ export const PopExit = styled.div`
   top: 0;
   left: 0;
   z-index: 5;
-  &:target {
-    display: block;
-  }
 `;
 
 export const PopExitContainer = styled.div`

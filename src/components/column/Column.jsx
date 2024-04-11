@@ -15,6 +15,7 @@ function Column({ arr }) {
             cardTitle={el.theme}
             cardName={el.title}
             cardDate={el.date}
+            id={el.id}
           />
         ))}
       </ColumnCards>

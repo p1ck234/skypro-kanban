@@ -7,6 +7,8 @@ import {
   PopUserSetName,
   PopUserSetTheme,
 } from "./PopDropdown.style";
+import { Link } from "react-router-dom";
+import { paths } from "../../../lib/paths";
 
 const PopDrowdown = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -24,9 +26,9 @@ const PopDrowdown = () => {
             <p>Темная тема</p>
             <input type="checkbox" name="checkbox" />
           </PopUserSetTheme>
-          <PopUserButton>
-            <a href="#popExit">Выйти</a>
-          </PopUserButton>
+          <Link to={paths.EXIT}>
+            <PopUserButton>Выйти</PopUserButton>
+          </Link>
         </HeaderPopUserSet>
       )}
     </div>

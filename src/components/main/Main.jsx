@@ -1,8 +1,9 @@
 import Column from "../column/Column";
 import { MainBlock, MainBox, MainContent } from "./Main.styled";
 import { Container } from "../../styles/shared";
+import Header from "../header/Header";
 
-function Main({ cards }) {
+function Main({ cards, isLoading, setCards }) {
   const statusList = [
     "Без статуса",
     "Нужно сделать",
@@ -12,16 +13,21 @@ function Main({ cards }) {
   ];
   return (
     <MainBox>
+      <Header setCards={setCards} cards={cards} />
       <Container>
         <MainBlock>
-          <MainContent>
-            {statusList.map((status) => (
-              <Column
-                key={status}
-                arr={cards.filter((card) => card.status === status)}
-              />
-            ))}
-          </MainContent>
+          {isLoading ? (
+            <div>Загрузка...</div>
+          ) : (
+            <MainContent>
+              {statusList.map((status) => (
+                <Column
+                  key={status}
+                  arr={cards.filter((card) => card.status === status)}
+                />
+              ))}
+            </MainContent>
+          )}
         </MainBlock>
       </Container>
     </MainBox>
