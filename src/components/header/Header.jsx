@@ -4,7 +4,7 @@ import PopDrowdown from "../popups/PopDrowdown/PopDropdown";
 import * as S from "./Header.styled";
 import { paths } from "../../lib/paths";
 
-function Header({ cards, setCards }) {
+function Header({ cards, setCards, user }) {
   const onCardAdd = () => {
     const newCard = {
       id: cards.length + 1,
@@ -33,7 +33,7 @@ function Header({ cards, setCards }) {
             <S.HeaderBtn onClick={onCardAdd}>
               <a href="#">Создать новую задачу</a>
             </S.HeaderBtn>
-            <PopDrowdown onCardAdd={onCardAdd} />
+            <PopDrowdown user={user} onCardAdd={onCardAdd} />
           </S.HeaderNav>
         </S.HeaderBlock>
       </Container>

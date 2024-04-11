@@ -29,6 +29,7 @@ const MainPage = ({ user }) => {
         isLoading={isLoading}
         setCards={setCards}
         error={error}
+        user={user}
       />
       <Outlet />
     </>

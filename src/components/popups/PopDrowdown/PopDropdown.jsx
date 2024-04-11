@@ -10,14 +10,14 @@ import {
 import { Link } from "react-router-dom";
 import { paths } from "../../../lib/paths";
 
-const PopDrowdown = () => {
+const PopDrowdown = ({ user }) => {
   const [isOpen, setIsOpen] = useState(false);
   const toggleDropdown = () => {
     setIsOpen((prevState) => !prevState);
   };
   return (
     <div>
-      <HeaderUser onClick={toggleDropdown}>Ivan Ivanov</HeaderUser>
+      <HeaderUser onClick={toggleDropdown}>{user.name}</HeaderUser>
       {isOpen && (
         <HeaderPopUserSet id="user-set-target">
           <PopUserSetName>Ivan Ivanov</PopUserSetName>
