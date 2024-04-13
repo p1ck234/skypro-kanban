@@ -9,7 +9,7 @@ const MainPage = ({ user }) => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    setIsLoading(true); // Set loading state to true initially
+    setIsLoading(true); 
 
     getTasks({ token: user.token })
       .then((response) => {
@@ -19,7 +19,7 @@ const MainPage = ({ user }) => {
         setError(err.message);
       })
       .finally(() => {
-        setIsLoading(false); // Set loading state to false after the promise is resolved or rejected
+        setIsLoading(false); 
       });
   }, [user]);
   return (

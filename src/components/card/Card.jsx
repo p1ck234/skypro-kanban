@@ -1,12 +1,9 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import * as S from "./Card.styled";
-import { useRef, useState } from "react";
-import { useClickOutside } from "../header/useClickOutside";
-import { paths } from "../../lib/paths";
 
 function Card({ cardTitle, cardName, cardDate, id }) {
   const getClassName = (title) => {
-    if (!title) return "_gray"; // Handle case where title is null or undefined
+    if (!title) return "_gray";
     switch (title.toLowerCase()) {
       case "copywriting":
         return "_purple";
@@ -19,9 +16,8 @@ function Card({ cardTitle, cardName, cardDate, id }) {
     }
   };
 
-  
   return (
-    <S.CardItem >
+    <S.CardItem>
       <S.CardsBlock>
         <S.CardGroup>
           <S.CardTheme $theme={getClassName(cardTitle)}>

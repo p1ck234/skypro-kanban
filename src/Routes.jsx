@@ -25,7 +25,6 @@ const AppRoutes = () => {
   const userLogin = (newUser) => {
     localStorage.setItem("user", JSON.stringify(newUser));
     setUser(newUser);
-    // navigate(paths.MAIN);
   };
   const logout = () => {
     localStorage.removeItem("user");
