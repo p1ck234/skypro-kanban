@@ -19,16 +19,10 @@ function Card({ cardTitle, cardName, cardDate, id }) {
     }
   };
 
-  const navigate = useNavigate();
-  const [isOpen, setIsOpen] = useState(true);
-  const menuRef = useRef(null);
-  useClickOutside(menuRef, () => {
-    if (isOpen) setIsOpen(false);
-    navigate(paths.MAIN);
-  });
+  
   return (
-    <S.CardItem>
-      <S.CardsBlock ref={menuRef}>
+    <S.CardItem >
+      <S.CardsBlock>
         <S.CardGroup>
           <S.CardTheme $theme={getClassName(cardTitle)}>
             <p>{cardTitle}</p>

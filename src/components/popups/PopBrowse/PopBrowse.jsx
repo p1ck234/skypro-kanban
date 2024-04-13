@@ -1,13 +1,22 @@
-import { Link, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import Calendar from "../../calendar/Calendar";
 import { paths } from "../../../lib/paths";
+import { useRef, useState } from "react";
+import { useClickOutside } from "../../header/useClickOutside";
 
 function PopBrowser() {
+  const navigate = useNavigate();
+  const [isOpen, setIsOpen] = useState(true);
+  const menuRef = useRef(null);
+  useClickOutside(menuRef, () => {
+    if (isOpen) setIsOpen(false);
+    navigate(-1);
+  });
   const { id } = useParams();
   return (
     <div className="pop-browse" id="popBrowse">
       <div className="pop-browse__container">
-        <div className="pop-browse__block">
+        <div className="pop-browse__block" ref={menuRef}>
           <div className="pop-browse__content">
             <div className="pop-browse__top-block">
               <h3 className="pop-browse__ttl">Название задачи ({id})</h3>
