@@ -3,6 +3,7 @@ import * as S from "./Card.styled";
 
 function Card({ cardTitle, cardName, cardDate, id }) {
   const getClassName = (title) => {
+    if (!title) return "_gray"; // Handle case where title is null or undefined
     switch (title.toLowerCase()) {
       case "copywriting":
         return "_purple";

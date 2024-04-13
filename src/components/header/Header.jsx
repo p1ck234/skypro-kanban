@@ -7,8 +7,8 @@ import { paths } from "../../lib/paths";
 function Header({ cards, setCards, user }) {
   const onCardAdd = () => {
     const newCard = {
-      id: cards.length + 1,
-      theme: "Web Design",
+      _id: cards.length + 1,
+      topic: "Web Design",
       title: "Название задачи",
       date: "30.10.23",
       status: "Без статуса",
