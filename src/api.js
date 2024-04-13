@@ -1,4 +1,4 @@
-const url = "https://wedev-api.sky.pro/api"
+const url = "https://wedev-api.sky.pro/api";
 
 export const getTasks = async ({ token }) => {
   const response = await fetch(`${url}/kanban`, {
@@ -20,8 +20,12 @@ export const authPost = async (login, password) => {
       password,
     }),
   });
-  const data = await response.json();
-  return data;
+
+  if (response.status === 201) {
+    return response.json();
+  } else if (response.status === 400) {
+    throw new Error("Неверный логин или пароль");
+  } 
 };
 
 export const regPost = async (name, login, password) => {
@@ -33,6 +37,10 @@ export const regPost = async (name, login, password) => {
       password,
     }),
   });
-  const data = await response.json();
-  return data;
+
+  if (response.status === 201) {
+    return response.json();
+  } else if (response.status === 400) {
+    throw new Error("Пользователь с таким логином уже существует");
+  } 
 };

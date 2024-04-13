@@ -11,13 +11,14 @@ import {
   ModalInput,
   ModalTtl,
 } from "./Login.styled";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { authPost } from "../../api";
 
 function Login({ userLogin }) {
   const [login, setLogin] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+  const navigate = useNavigate();
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -28,21 +29,9 @@ function Login({ userLogin }) {
     try {
       const responseData = await authPost(login, password);
       userLogin(responseData.user);
-    } catch (error) {
-      if (error.response) {
-        // Если сервер ответил, но с ошибкой
-        if (error.response.status === 400) {
-          alert("Неверные логин или пароль");
-        } else {
-          setError("Ошибка: " + error.response.status);
-        }
-      } else if (error.request) {
-        // Если запрос был сделан, но ответ не был получен
-        setError("Сервер не отвечает");
-      } else {
-        // Возникла другая ошибка
-        setError("Что-то пошло не так: " + error.message);
-      }
+      navigate(paths.MAIN);
+    } catch (err) {
+      setError(err.message);
     }
   };
 

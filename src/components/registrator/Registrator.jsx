@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Wrapper } from "../../styles/shared";
 import {
   ContainerSignup,
@@ -14,11 +14,12 @@ import { paths } from "../../lib/paths";
 import { useState } from "react";
 import { regPost } from "../../api";
 
-function Registrator({ userLogin }) {
+function Registrator() {
   const [name, setName] = useState("");
   const [login, setLogin] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+  const navigate = useNavigate();
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -27,14 +28,10 @@ function Registrator({ userLogin }) {
       return;
     }
     try {
-      const response = await regPost(name, login, password);
-      if (response.status === 201) {
-        userLogin(response.data.user);
-      } else {
-        throw new Error(response.statusText);
-      }
-    } catch (error) {
-      setError((prevError) => `${prevError} ${error.message}`);
+      await regPost(name, login, password);
+      navigate(paths.LOGIN);
+    } catch (err) {
+      setError(err.message);
     }
   };
 
