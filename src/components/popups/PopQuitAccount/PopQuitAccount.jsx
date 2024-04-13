@@ -15,7 +15,7 @@ import { useClickOutside } from "../../header/useClickOutside";
 
 function PopQuitAccount({ logout }) {
   const navigate = useNavigate();
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(true);
   const menuRef = useRef(null);
   useClickOutside(menuRef, () => {
     if (isOpen) setIsOpen(false);

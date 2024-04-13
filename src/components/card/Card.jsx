@@ -1,5 +1,8 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import * as S from "./Card.styled";
+import { useRef, useState } from "react";
+import { useClickOutside } from "../header/useClickOutside";
+import { paths } from "../../lib/paths";
 
 function Card({ cardTitle, cardName, cardDate, id }) {
   const getClassName = (title) => {
@@ -15,9 +18,17 @@ function Card({ cardTitle, cardName, cardDate, id }) {
         return "_gray";
     }
   };
+
+  const navigate = useNavigate();
+  const [isOpen, setIsOpen] = useState(true);
+  const menuRef = useRef(null);
+  useClickOutside(menuRef, () => {
+    if (isOpen) setIsOpen(false);
+    navigate(paths.MAIN);
+  });
   return (
     <S.CardItem>
-      <S.CardsBlock>
+      <S.CardsBlock ref={menuRef}>
         <S.CardGroup>
           <S.CardTheme $theme={getClassName(cardTitle)}>
             <p>{cardTitle}</p>
