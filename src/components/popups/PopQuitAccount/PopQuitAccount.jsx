@@ -10,17 +10,21 @@ import {
 } from "./PopQuitAccount.styles";
 import { paths } from "../../../lib/paths";
 import { useNavigate } from "react-router-dom";
+import { useRef, useState } from "react";
+import { useClickOutside } from "../../header/useClickOutside";
 
 function PopQuitAccount({ logout }) {
-  // const navigate = useNavigate();
-  // const login = () => {
-  //   setIsAuth(true);
-  //   navigate(paths.MAIN);
-  // };
+  const navigate = useNavigate();
+  const [isOpen, setIsOpen] = useState(false);
+  const menuRef = useRef(null);
+  useClickOutside(menuRef, () => {
+    if (isOpen) setIsOpen(false);
+    navigate(-1);
+  });
   return (
     <PopExit id="popExit">
       <PopExitContainer>
-        <PopExitBlock>
+        <PopExitBlock ref={menuRef}>
           <PopExitTtl>
             <h2>Выйти из аккаунта?</h2>
           </PopExitTtl>
