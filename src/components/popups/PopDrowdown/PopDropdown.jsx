@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import {
   HeaderPopUserSet,
   HeaderUser,
@@ -9,15 +9,20 @@ import {
 } from "./PopDropdown.style";
 import { Link } from "react-router-dom";
 import { paths } from "../../../lib/paths";
+import { useClickOutside } from "../../header/useClickOutside";
 
-const PopDrowdown = () => {
+const PopDrowdown = ({ user }) => {
   const [isOpen, setIsOpen] = useState(false);
+  const menuRef = useRef(null);
+  useClickOutside(menuRef, () => {
+    if (isOpen) setTimeout(() => setIsOpen(false), 50);
+  });
   const toggleDropdown = () => {
     setIsOpen((prevState) => !prevState);
   };
   return (
-    <div>
-      <HeaderUser onClick={toggleDropdown}>Ivan Ivanov</HeaderUser>
+    <div ref={menuRef}>
+      <HeaderUser onClick={toggleDropdown}>{user.name}</HeaderUser>
       {isOpen && (
         <HeaderPopUserSet id="user-set-target">
           <PopUserSetName>Ivan Ivanov</PopUserSetName>

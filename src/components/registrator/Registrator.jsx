@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Wrapper } from "../../styles/shared";
 import {
   ContainerSignup,
@@ -11,8 +11,30 @@ import {
   ModalTtl,
 } from "./Registrator.styled";
 import { paths } from "../../lib/paths";
+import { useState } from "react";
+import { regPost } from "../../api";
 
 function Registrator() {
+  const [name, setName] = useState("");
+  const [login, setLogin] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
+  const navigate = useNavigate();
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    if (!login.trim() || !password.trim()) {
+      setError("Отсутствует одно из полей");
+      return;
+    }
+    try {
+      await regPost(name, login, password);
+      navigate(paths.LOGIN);
+    } catch (err) {
+      setError(err.message);
+    }
+  };
+
   return (
     <Wrapper>
       <ContainerSignup>
@@ -21,28 +43,33 @@ function Registrator() {
             <ModalTtl>
               <h2>Регистрация</h2>
             </ModalTtl>
-            <ModalForm id="formLogUp" action="#">
+            <ModalForm id="formLogUp" onSubmit={handleSubmit}>
               <ModalInput
                 type="text"
-                name="first-name"
-                id="first-name"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
                 placeholder="Имя"
               />
               <ModalInput
                 type="text"
-                name="login"
-                id="loginReg"
-                placeholder="Эл. почта"
+                value={login}
+                onChange={(e) => setLogin(e.target.value)}
+                placeholder="Логин"
               />
               <ModalInput
                 type="password"
-                name="password"
-                id="passwordFirst"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
                 placeholder="Пароль"
               />
-              <ModalBtnEnter id="SignUpEnter">
-                <a href="../main.html">Зарегистрироваться</a>{" "}
+              <ModalBtnEnter id="SignUpEnter" type="submit">
+                Зарегистрироваться
               </ModalBtnEnter>
+              {error && (
+                <p style={{ color: "red", fontSize: 16, marginBottom: 6 }}>
+                  {error}
+                </p>
+              )}
               <ModalFormGroup>
                 <p>
                   Уже есть аккаунт? <Link to={paths.LOGIN}>Войдите здесь</Link>

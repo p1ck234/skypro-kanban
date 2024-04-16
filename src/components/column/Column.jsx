@@ -11,11 +11,11 @@ function Column({ arr }) {
       <ColumnCards>
         {arr.map((el) => (
           <Card
-            key={el.id}
-            cardTitle={el.theme}
+            key={el._id}
+            cardTitle={el.topic}
             cardName={el.title}
             cardDate={el.date}
-            id={el.id}
+            id={el._id}
           />
         ))}
       </ColumnCards>

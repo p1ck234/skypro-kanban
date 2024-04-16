@@ -3,7 +3,7 @@ import { MainBlock, MainBox, MainContent } from "./Main.styled";
 import { Container } from "../../styles/shared";
 import Header from "../header/Header";
 
-function Main({ cards, isLoading, setCards }) {
+function Main({ cards, isLoading, setCards, error, user }) {
   const statusList = [
     "Без статуса",
     "Нужно сделать",
@@ -13,19 +13,25 @@ function Main({ cards, isLoading, setCards }) {
   ];
   return (
     <MainBox>
-      <Header setCards={setCards} cards={cards} />
+      <Header setCards={setCards} cards={cards} user={user} />
       <Container>
         <MainBlock>
-          {isLoading ? (
-            <div>Загрузка...</div>
+          {error ? (
+            <p style={{ color: "red", fontSize: 25 }}>
+              Произошла ошибка, попробуйте позже...
+            </p>
           ) : (
             <MainContent>
-              {statusList.map((status) => (
-                <Column
-                  key={status}
-                  arr={cards.filter((card) => card.status === status)}
-                />
-              ))}
+              {isLoading ? (
+                <p style={{ color: "#94a6be", fontSize: 25 }}>Загрузка...</p>
+              ) : (
+                statusList.map((status) => (
+                  <Column
+                    key={status}
+                    arr={cards.filter((card) => card.status === status)}
+                  />
+                ))
+              )}
             </MainContent>
           )}
         </MainBlock>
