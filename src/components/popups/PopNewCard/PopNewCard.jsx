@@ -1,15 +1,37 @@
+import { Link, useNavigate } from "react-router-dom";
+import { paths } from "../../../lib/paths";
 import Calendar from "../../calendar/Calendar";
+import { useState } from "react";
+import { postToDo } from "../../../api";
+import { useUserContext } from "../../context/hooks/useUser";
 
 function PopNewCard() {
+  const [selected, setSelected] = useState();
+  const { user } = useUserContext();
+  const navigate = useNavigate();
+  const [newTask, setNewTask] = useState({
+    title: "",
+    description: "",
+    topic: "",
+  });
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    const taskData = { ...newTask, date: selected };
+    postToDo({ ...taskData, token: user.token }).then((responseData) => {
+      navigate(-1);
+    });
+  };
   return (
     <div className="pop-new-card" id="popNewCard">
       <div className="pop-new-card__container">
         <div className="pop-new-card__block">
           <div className="pop-new-card__content">
             <h3 className="pop-new-card__ttl">Создание задачи</h3>
-            <a href="#" className="pop-new-card__close">
+            <Link to={paths.MAIN} className="pop-new-card__close">
               &#10006;
-            </a>
+            </Link>
+
             <div className="pop-new-card__wrap">
               <form
                 className="pop-new-card__form form-new"
@@ -21,6 +43,9 @@ function PopNewCard() {
                     Название задачи
                   </label>
                   <input
+                    onChange={(e) =>
+                      setNewTask({ ...newTask, title: e.target.value })
+                    }
                     className="form-new__input"
                     type="text"
                     name="name"
@@ -34,6 +59,9 @@ function PopNewCard() {
                     Описание задачи
                   </label>
                   <textarea
+                    onChange={(e) =>
+                      setNewTask({ ...newTask, description: e.target.value })
+                    }
                     className="form-new__area"
                     name="text"
                     id="textArea"
@@ -41,11 +69,45 @@ function PopNewCard() {
                   ></textarea>
                 </div>
               </form>
-              <Calendar />
+              <div className="calendar">
+                <Calendar selected={selected} setSelected={setSelected} />
+              </div>
             </div>
             <div className="pop-new-card__categories categories">
               <p className="categories__p subttl">Категория</p>
-              <div className="categories__themes">
+              <label>
+                Web Design
+                <input
+                  checked
+                  type="radio"
+                  value="Web Design"
+                  onChange={(e) =>
+                    setNewTask({ ...newTask, topic: e.target.value })
+                  }
+                />
+              </label>
+              <label>
+                Research
+                <input
+                  type="radio"
+                  value="Research"
+                  onChange={(e) =>
+                    setNewTask({ ...newTask, topic: e.target.value })
+                  }
+                />
+              </label>
+              <label>
+                Copywriting
+                <input
+                  type="radio"
+                  value="Copywriting"
+                  onChange={(e) =>
+                    setNewTask({ ...newTask, topic: e.target.value })
+                  }
+                />
+              </label>
+
+              {/* <div className="categories__themes">
                 <div className="categories__theme _orange _active-category">
                   <p className="_orange">Web Design</p>
                 </div>
@@ -55,9 +117,13 @@ function PopNewCard() {
                 <div className="categories__theme _purple">
                   <p className="_purple">Copywriting</p>
                 </div>
-              </div>
+              </div> */}
             </div>
-            <button className="form-new__create _hover01" id="btnCreate">
+            <button
+              onClick={handleSubmit}
+              className="form-new__create _hover01"
+              id="btnCreate"
+            >
               Создать задачу
             </button>
           </div>

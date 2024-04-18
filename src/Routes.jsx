@@ -11,28 +11,9 @@ import PrivateRoutes from "./PrivateRoutes";
 import { Wrapper } from "./styles/shared";
 import NewCardPage from "./pages/NewCardPage";
 
-// const checkLS = () => {
-//   try {
-//     return JSON.parse(localStorage.getItem("user"));
-//   } catch {
-//     localStorage.removeItem("user");
-//     return null;
-//   }
-// };
 
-// export const UserContext = createContext(null);
 const AppRoutes = () => {
-  //   const [user, setUser] = useState(checkLS());
-  //   const navigate = useNavigate();
-  //   const userLogin = (newUser) => {
-  //     localStorage.setItem("user", JSON.stringify(newUser));
-  //     setUser(newUser);
-  //   };
-  //   const logout = () => {
-  //     localStorage.removeItem("user");
-  //     setUser(null);
-  //     navigate(paths.LOGIN);
-  //   };
+ 
 
   return (
     <>

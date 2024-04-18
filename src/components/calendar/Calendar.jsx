@@ -1,11 +1,8 @@
-import { useState } from "react";
 import { DayPicker } from "react-day-picker";
 import { format } from "date-fns";
 import { ru } from "date-fns/locale";
 
-function Calendar() {
-  const [selected, setSelected] = useState();
-
+function Calendar({ selected, setSelected }) {
   let footer = <p>Выберите срок исполнения.</p>;
   if (selected) {
     footer = <p>Вы выбрали {format(selected, "PP", { locale: ru })}</p>;

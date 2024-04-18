@@ -20,8 +20,7 @@ function PopBrowser() {
           <div className="pop-browse__content">
             <div className="pop-browse__top-block">
               <h3 className="pop-browse__ttl">Название задачи ({id})</h3>
-              <div className="categories__theme theme-top _orange _active-category">
-              </div>
+              <div className="categories__theme theme-top _orange _active-category"></div>
             </div>
             <div className="pop-browse__status status">
               <p className="status__p subttl">Статус</p>
@@ -62,7 +61,9 @@ function PopBrowser() {
                   ></textarea>
                 </div>
               </form>
-              <Calendar />
+              <div className="calendar">
+                <Calendar />
+              </div>
             </div>
             <div className="theme-down__categories theme-down">
               <p className="categories__p subttl">Категория</p>
