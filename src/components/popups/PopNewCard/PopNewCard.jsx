@@ -7,7 +7,7 @@ import { useUserContext } from "../../context/hooks/useUser";
 
 function PopNewCard() {
   const [selected, setSelected] = useState();
-  const { user } = useUserContext();
+  const { user, setCards } = useUserContext();
   const navigate = useNavigate();
   const [newTask, setNewTask] = useState({
     title: "",
@@ -20,6 +20,7 @@ function PopNewCard() {
     const taskData = { ...newTask, date: selected };
     postToDo({ ...taskData, token: user.token }).then((responseData) => {
       navigate(-1);
+      setCards(responseData.tasks);
     });
   };
   return (

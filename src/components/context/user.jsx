@@ -16,6 +16,8 @@ export const UserContext = createContext(null);
 
 export function UserProvider({ children }) {
   const [user, setUser] = useState(checkLS());
+  const [cards, setCards] = useState([]);
+
   const navigate = useNavigate();
 
   function userLogin(newUser) {
@@ -29,10 +31,8 @@ export function UserProvider({ children }) {
   }
 
   return (
-    <UserContext.Provider value={{ user, userLogin, logout }}>
+    <UserContext.Provider value={{ user, userLogin, logout, cards, setCards }}>
       {children}
     </UserContext.Provider>
   );
 }
-
-

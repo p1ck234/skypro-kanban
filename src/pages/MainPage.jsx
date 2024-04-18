@@ -5,10 +5,12 @@ import { getTasks } from "../api";
 import { useUserContext } from "../components/context/hooks/useUser";
 
 const MainPage = () => {
-  const [cards, setCards] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
   const { user } = useUserContext();
+  const { cards } = useUserContext();
+  const { setCards } = useUserContext();
+
   useEffect(() => {
     setIsLoading(true);
 
