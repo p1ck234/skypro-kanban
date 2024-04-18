@@ -63,7 +63,8 @@ export const regPost = async (name, login, password) => {
 
   if (response.status === 201) {
     return response.json();
-  } else if (response.status === 400) {
-    throw new Error("Пользователь с таким логином уже существует");
+  } else if (!response.ok) {
+    const exp = await response.json();
+    throw new Error(exp.error);
   }
 };

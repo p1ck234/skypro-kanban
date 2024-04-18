@@ -7,6 +7,7 @@ import { useUserContext } from "../../context/hooks/useUser";
 
 function PopNewCard() {
   const [selected, setSelected] = useState();
+  const [error, setError] = useState();
   const { user, setCards } = useUserContext();
   const navigate = useNavigate();
   const [newTask, setNewTask] = useState({
@@ -18,11 +19,16 @@ function PopNewCard() {
   const handleSubmit = async (event) => {
     event.preventDefault();
     const taskData = { ...newTask, date: selected };
-    postToDo({ ...taskData, token: user.token }).then((responseData) => {
-      navigate(-1);
+
+    try {
+      const responseData = await postToDo({ ...taskData, token: user.token });
       setCards(responseData.tasks);
-    });
+      navigate(-1);
+    } catch (err) {
+      setError(err.message);
+    }
   };
+
   return (
     <div className="pop-new-card" id="popNewCard">
       <div className="pop-new-card__container">
@@ -120,6 +126,12 @@ function PopNewCard() {
                 </div>
               </div> */}
             </div>
+
+            {error && (
+              <p style={{ color: "red", fontSize: 16, marginBottom: 4 }}>
+                {error}
+              </p>
+            )}
             <button
               onClick={handleSubmit}
               className="form-new__create _hover01"

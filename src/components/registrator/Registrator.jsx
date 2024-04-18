@@ -23,10 +23,10 @@ function Registrator() {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    if (!login.trim() || !password.trim()) {
-      setError("Отсутствует одно из полей");
-      return;
-    }
+    // if (!login.trim() || !password.trim()) {
+    //   setError("Отсутствует одно из полей");
+    //   return;
+    // }
     try {
       await regPost(name, login, password);
       navigate(paths.LOGIN);
