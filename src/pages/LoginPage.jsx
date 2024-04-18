@@ -1,8 +1,8 @@
 import Login from "../components/login/Login";
-function LoginPage({ userLogin }) {
+function LoginPage() {
   return (
     <>
-      <Login userLogin={userLogin} />
+      <Login />
     </>
   );
 }

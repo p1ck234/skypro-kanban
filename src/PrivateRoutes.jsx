@@ -1,6 +1,8 @@
 import { Navigate, Outlet } from "react-router-dom";
 import { paths } from "./lib/paths";
-const PrivateRoutes = ({user}) => {
+import { useUserContext } from "./components/context/hooks/useUser";
+const PrivateRoutes = () => {
+  const { user } = useUserContext();
   return user ? <Outlet /> : <Navigate to={paths.LOGIN} />;
 };
 
