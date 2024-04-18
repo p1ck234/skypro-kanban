@@ -7,13 +7,19 @@ function Calendar({ selected, setSelected }) {
   if (selected) {
     footer = <p>Вы выбрали {format(selected, "PP", { locale: ru })}</p>;
   }
-
+  const modifiersStyles = {
+    selected: {
+      backgroundColor: "#007bff",
+      color: "#fff",
+    },
+  };
   return (
     <DayPicker
       mode="single"
       selected={selected}
       onSelect={setSelected}
       footer={footer}
+      modifiersStyles={modifiersStyles}
     />
     // <S.PopNewCardCalendar>
     //   <S.CalendarTtl>Даты</S.CalendarTtl>
