@@ -1,10 +1,11 @@
 import { Link, useNavigate } from "react-router-dom";
 import { paths } from "../../../lib/paths";
 import Calendar from "../../calendar/Calendar";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { postToDo } from "../../../api";
 import { useUserContext } from "../../context/hooks/useUser";
 import * as S from "./PopNewCard.styled";
+import { useClickOutside } from "../../header/useClickOutside";
 
 function PopNewCard() {
   const [selected, setSelected] = useState();
@@ -15,6 +16,13 @@ function PopNewCard() {
     title: "",
     description: "",
     topic: "",
+  });
+
+  const [isOpen, setIsOpen] = useState(true);
+  const menuRef = useRef(null);
+  useClickOutside(menuRef, () => {
+    if (isOpen) setIsOpen(false);
+    navigate(-1);
   });
 
   const handleSubmit = async (event) => {
@@ -33,7 +41,7 @@ function PopNewCard() {
   return (
     <S.PopNewCard id="popNewCard">
       <S.PopNewCardContainer>
-        <S.PopNewCardBlock>
+        <S.PopNewCardBlock ref={menuRef}>
           <S.PopNewCardContent>
             <S.PopNewCardTtl>Создание задачи</S.PopNewCardTtl>
             <S.PopNewCardClose>
