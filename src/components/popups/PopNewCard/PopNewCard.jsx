@@ -66,7 +66,6 @@ function PopNewCard() {
                   ></S.FormNewArea>
                 </S.FormNewBlock>
               </S.PopNewCardForm>
-
               <Calendar selected={selected} setSelected={setSelected} />
             </S.PopNewCardWrap>
             <S.Categories>

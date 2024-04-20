@@ -1,10 +1,12 @@
 import Main from "../components/main/Main";
 import { Outlet } from "react-router-dom";
 import { useUserContext } from "../components/context/hooks/useUser";
+import { useTask } from "../components/context/hooks/useTask";
 
 const MainPage = () => {
   const { user } = useUserContext();
-  const { cards, setCards, error, isLoading } = useUserContext();
+  const { cards, setCards, error, isLoading } = useTask();
+
 
   return (
     <>
