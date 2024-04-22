@@ -1,9 +1,9 @@
 import PopQuitAccount from "../components/popups/PopQuitAccount/PopQuitAccount";
 
-function ExitPage({ logout }) {
+function ExitPage() {
   return (
     <>
-      <PopQuitAccount logout={logout} />
+      <PopQuitAccount />
     </>
   );
 }

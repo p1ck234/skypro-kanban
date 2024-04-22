@@ -12,8 +12,10 @@ import { paths } from "../../../lib/paths";
 import { useNavigate } from "react-router-dom";
 import { useRef, useState } from "react";
 import { useClickOutside } from "../../header/useClickOutside";
+import { useUserContext } from "../../context/hooks/useUser";
 
-function PopQuitAccount({ logout }) {
+function PopQuitAccount() {
+  const { logout } = useUserContext();
   const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState(true);
   const menuRef = useRef(null);

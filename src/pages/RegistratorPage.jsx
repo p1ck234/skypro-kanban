@@ -1,9 +1,9 @@
 import Registrator from "../components/registrator/Registrator";
 
-function RegistratorPage({ userLogin }) {
+function RegistratorPage() {
   return (
     <>
-      <Registrator userLogin={userLogin} />
+      <Registrator />
     </>
   );
 }

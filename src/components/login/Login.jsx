@@ -13,8 +13,10 @@ import {
 } from "./Login.styled";
 import { Link, useNavigate } from "react-router-dom";
 import { authPost } from "../../api";
+import { useUserContext } from "../context/hooks/useUser";
 
-function Login({ userLogin }) {
+function Login() {
+  const { userLogin } = useUserContext();
   const [login, setLogin] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
