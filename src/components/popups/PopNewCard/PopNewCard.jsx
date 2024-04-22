@@ -6,11 +6,13 @@ import { postToDo } from "../../../api";
 import { useUserContext } from "../../context/hooks/useUser";
 import * as S from "./PopNewCard.styled";
 import { useClickOutside } from "../../header/useClickOutside";
+import { useTask } from "../../context/hooks/useTask";
 
 function PopNewCard() {
   const [selected, setSelected] = useState();
   const [error, setError] = useState();
-  const { user, setCards } = useUserContext();
+  const { user } = useUserContext();
+  const { setCards } = useTask();
   const navigate = useNavigate();
   const [newTask, setNewTask] = useState({
     title: "",
