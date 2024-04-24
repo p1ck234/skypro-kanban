@@ -104,3 +104,11 @@ export const CardBtn = styled.div`
     display: block;
   }
 `;
+
+export const TopicText = styled.p`
+  display: flex;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 14px;
+`;
