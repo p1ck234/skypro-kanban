@@ -5,7 +5,6 @@ import {
   PopUserButton,
   PopUserSetMail,
   PopUserSetName,
-  PopUserSetTheme,
 } from "./PopDropdown.style";
 import { Link } from "react-router-dom";
 import { paths } from "../../../lib/paths";
@@ -27,10 +26,10 @@ const PopDrowdown = ({ user }) => {
         <HeaderPopUserSet id="user-set-target">
           <PopUserSetName>Ivan Ivanov</PopUserSetName>
           <PopUserSetMail>ivan.ivanov@gmail.com</PopUserSetMail>
-          <PopUserSetTheme>
+          {/* <PopUserSetTheme>
             <p>Темная тема</p>
             <input type="checkbox" name="checkbox" />
-          </PopUserSetTheme>
+          </PopUserSetTheme> */}
           <Link to={paths.EXIT}>
             <PopUserButton>Выйти</PopUserButton>
           </Link>
