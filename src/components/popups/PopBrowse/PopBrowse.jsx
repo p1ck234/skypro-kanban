@@ -62,15 +62,15 @@ export default function PopBrowse() {
         console.log(error);
         alert(error);
       });
-    postToDo({ token: user.token, taskData })
-      .then((newCard) => {
-        setCards(newCard.tasks);
-        navigate(paths.MAIN);
-      })
-      .catch((error) => {
-        console.log(error);
-        alert(error);
-      });
+    // postToDo({ token: user.token, taskData })
+    //   .then((newCard) => {
+    //     setCards(newCard.tasks);
+    //     navigate(paths.MAIN);
+    //   })
+    //   .catch((error) => {
+    //     console.log(error);
+    //     alert(error);
+    //   });
   };
 
   const handleInputChange = (e) => {
@@ -148,15 +148,15 @@ export default function PopBrowse() {
                   </S.OpenedCardTheme>
                 </S.StatusThemesDiv>
               )}
-              <S.OpenedCardTheme>
-                {!isEdited && (
+              {!isEdited && (
+                <S.OpenedCardTheme>
                   <S.StatusThemesDiv>
                     <S.StatusThemeActiveDiv>
                       {openedCard.status}
                     </S.StatusThemeActiveDiv>
                   </S.StatusThemesDiv>
-                )}
-              </S.OpenedCardTheme>
+                </S.OpenedCardTheme>
+              )}
             </S.PopBrowseStatus>
 
             <S.PopBrowseWrap>

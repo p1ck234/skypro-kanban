@@ -123,13 +123,15 @@ text-align: center;
 color: #000; */
 `;
 export const StatusThemeActiveDiv = styled.div`
-  width: 101px;
-  height: 10px;
+  width: 136px;
+  height: 30px;
   font-family: Roboto;
   font-size: 14px;
   font-weight: 400;
   text-align: center;
   color: #ffffff;
+  padding: 10px 14px 10px 14px;
+  background: rgb(148, 166, 190);
 `;
 
 export const BtnEdit = styled.div``;
@@ -317,28 +319,40 @@ export const ButtonClose = styled.button`
   ${Hover01}
 `;
 export const OpenedCardTheme = styled.div`
-display: inline-block;
-width: auto;
-height: 50px;
-padding: 8px 20px;
-border-radius: 24px;
-margin-right: 7px;
-opacity: 0.4;
-cursor: pointer;
+  display: inline-block;
+  width: 180px;
+  height: 50px;
+  font-family: Roboto;
+  font-size: 14px;
+  font-weight: 400;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 8px 20px;
+  border-radius: 24px;
+  margin-right: 7px;
+  opacity: 0.4;
+  padding: 10px 14px 10px 14px;
 
-${({ isactived }) =>
-  isactived &&
-  css`
-    opacity: 1;
-  `}
+  cursor: pointer;
+
+  ${({ isactived }) =>
+    isactived &&
+    css`
+      opacity: 1;
+      background-color: #94a6be;
+      color: #fff;
+    `}
 
   background-color: ${({ $themeColor }) =>
-    topicStyles[$themeColor]?.backgroundColor || "#94a6be"};
+    topicStyles[$themeColor]?.backgroundColor || "##ffffff"};
+  box-sizing: border-box;
+  border: 0.7px solid rgba(148, 166, 190, 0.4);
+  border-radius: 24px;
 
-${TopicText} {
-  color: ${({ $themeColor }) => topicStyles[$themeColor]?.color || "#ffffff"};
-} */
-
+  ${TopicText} {
+    color: ${({ $themeColor }) => topicStyles[$themeColor]?.color || "#ffffff"};
+  }
 `;
 
 export const PopBroweColor = styled.div`
