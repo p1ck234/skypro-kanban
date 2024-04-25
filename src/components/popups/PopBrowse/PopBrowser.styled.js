@@ -197,6 +197,7 @@ export const PopBrowseWrap = styled.div`
   @media screen and (max-width: 660px) {
     display: block;
   }
+  z-index: 8;
 `;
 
 export const PopBrowseForm = styled.form`

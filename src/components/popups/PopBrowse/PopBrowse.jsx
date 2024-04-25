@@ -8,7 +8,7 @@ import { useTask } from "../../context/hooks/useTask";
 import * as S from "./PopBrowser.styled";
 import { topicHeader } from "../../../lib/topic";
 import { TopicText } from "../../card/Card.styled";
-import { deleteTodo, postToDo, putTodo } from "../../../api";
+import { deleteTodo, putTodo } from "../../../api";
 
 export default function PopBrowse() {
   const { id } = useParams();
@@ -62,15 +62,6 @@ export default function PopBrowse() {
         console.log(error);
         alert(error);
       });
-    // postToDo({ token: user.token, taskData })
-    //   .then((newCard) => {
-    //     setCards(newCard.tasks);
-    //     navigate(paths.MAIN);
-    //   })
-    //   .catch((error) => {
-    //     console.log(error);
-    //     alert(error);
-    //   });
   };
 
   const handleInputChange = (e) => {
@@ -189,10 +180,7 @@ export default function PopBrowse() {
                   )}
                 </S.FormBrowseBlock>
               </S.PopBrowseForm>
-              <Calendar
-                selectedDate={selectedDate}
-                setSelectedDate={setSelectedDate}
-              />
+              <Calendar selected={selectedDate} setSelected={setSelectedDate} />
             </S.PopBrowseWrap>
 
             {!isEdited && (
