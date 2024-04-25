@@ -28,6 +28,7 @@ function Main({ cards, isLoading, setCards, error, user }) {
                 statusList.map((status) => (
                   <Column
                     key={status}
+                    title={status}
                     arr={cards.filter((card) => card.status === status)}
                   />
                 ))

@@ -4,6 +4,7 @@ export const MainBox = styled.main`
   width: 100%;
   background-color: #eaeef6;
   position: fixed;
+  height: 100%;
 `;
 
 export const MainBlock = styled.main`
