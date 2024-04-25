@@ -3,6 +3,7 @@ import styled from "styled-components";
 export const MainBox = styled.main`
   width: 100%;
   background-color: #eaeef6;
+  position: fixed;
 `;
 
 export const MainBlock = styled.main`
@@ -12,6 +13,6 @@ export const MainBlock = styled.main`
 `;
 
 export const MainContent = styled.main`
-width: 100%;
-display: flex;
+  width: 100%;
+  display: flex;
 `;

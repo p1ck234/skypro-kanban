@@ -45,7 +45,11 @@ export const PopBrowseBlock = styled.div`
   padding: 40px 30px 38px;
   border-radius: 10px;
   border: 0.7px solid #d4dbe5;
-  position: relative;
+  position: fixed; /* Change from 'relative' to 'fixed' */
+  top: 50%; /* Position it at the vertical center */
+  left: 50%; /* Position it at the horizontal center */
+  transform: translate(-50%, -50%); /* Adjust to center the modal */
+  z-index: 7;
   @media screen and (max-width: 660px) {
     border-radius: 0;
   }
