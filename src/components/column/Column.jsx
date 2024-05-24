@@ -1,12 +1,11 @@
 import Card from "../card/Card";
 import { ColumnCards, ColumnTitle, MainColumn } from "../column/Column.styled";
 
-function Column({ arr }) {
-  const columnTitle = arr.length > 0 ? arr[0].status : "Нет названия";
+function Column({ arr, title }) {
   return (
     <MainColumn>
       <ColumnTitle>
-        <p>{columnTitle}</p>
+        <p>{title}</p>
       </ColumnTitle>
       <ColumnCards>
         {arr.map((el) => (

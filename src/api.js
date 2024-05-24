@@ -68,3 +68,46 @@ export const regPost = async (name, login, password) => {
     throw new Error(exp.error);
   }
 };
+
+export async function putTodo({ token, id, taskData }) {
+  const response = await fetch(url + `/kanban/${id}`, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+    method: "PUT",
+    body: JSON.stringify({
+      title: taskData.title,
+      topic: taskData.topic,
+      status: taskData.status,
+      description: taskData.description,
+      date: taskData.date,
+    }),
+  });
+
+  if (!response.status === 201) {
+    throw new Error("Ошибка");
+  }
+
+  const data = await response.json();
+  return data;
+}
+
+// Удалить задачу
+export async function deleteTodo({ taskData, id, token }) {
+  const response = await fetch(url + `/kanban/${id}`, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+    method: "DELETE",
+    body: JSON.stringify({
+      taskData,
+    }),
+  });
+
+  if (!response.status === 201) {
+    throw new Error("Ошибка");
+  }
+
+  const data = await response.json();
+  return data;
+}
