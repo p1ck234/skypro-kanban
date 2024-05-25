@@ -5,6 +5,7 @@ import Header from "../header/Header";
 import { DndProvider } from "react-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend";
 import { putTodo } from "../../api"; // Make sure the path to your api file is correct
+import { useNavigate } from "react-router-dom";
 
 function Main({ cards, isLoading, setCards, error, user }) {
   const statusList = [
@@ -14,7 +15,7 @@ function Main({ cards, isLoading, setCards, error, user }) {
     "Тестирование",
     "Готово",
   ];
-
+  const navigate = useNavigate();
   const handleDropCard = async (id, newStatus) => {
     const card = cards.find((card) => card._id === id);
     const updatedCard = { ...card, status: newStatus };
@@ -35,6 +36,7 @@ function Main({ cards, isLoading, setCards, error, user }) {
         card._id === id ? updatedCardFromApi : card
       );
       setCards(finalUpdatedCards);
+      navigate(0);
     } catch (error) {
       console.error("Error updating card status:", error);
 
