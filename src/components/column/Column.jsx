@@ -1,9 +1,25 @@
+import { useDrop } from "react-dnd";
 import Card from "../card/Card";
 import { ColumnCards, ColumnTitle, MainColumn } from "../column/Column.styled";
 
-function Column({ arr, title }) {
+const ItemTypes = {
+  CARD: "card",
+};
+
+function Column({ arr, title, onDropCard }) {
+  const [{ isOver }, drop] = useDrop(() => ({
+    accept: ItemTypes.CARD,
+    drop: (item) => onDropCard(item.id, title),
+    collect: (monitor) => ({
+      isOver: monitor.isOver(),
+    }),
+  }));
+
   return (
-    <MainColumn>
+    <MainColumn
+      ref={drop}
+      style={{ backgroundColor: isOver ? "#f0f0f0" : "white" }}
+    >
       <ColumnTitle>
         <p>{title}</p>
       </ColumnTitle>

@@ -1,5 +1,10 @@
+import { useDrag } from 'react-dnd';
 import { Link } from "react-router-dom";
 import * as S from "./Card.styled";
+
+const ItemTypes = {
+  CARD: 'card',
+};
 
 function Card({ cardTitle, cardName, cardDate, id }) {
   const getClassName = (title) => {
@@ -16,8 +21,16 @@ function Card({ cardTitle, cardName, cardDate, id }) {
     }
   };
 
+  const [{ isDragging }, drag] = useDrag(() => ({
+    type: ItemTypes.CARD,
+    item: { id },
+    collect: (monitor) => ({
+      isDragging: monitor.isDragging(),
+    }),
+  }));
+
   return (
-    <S.CardItem>
+    <S.CardItem ref={drag} style={{ opacity: isDragging ? 0.5 : 1 }}>
       <S.CardsBlock>
         <S.CardGroup>
           <S.CardTheme $theme={getClassName(cardTitle)}>
@@ -33,7 +46,6 @@ function Card({ cardTitle, cardName, cardDate, id }) {
         </S.CardGroup>
         <S.CardContent>
           <S.CardContentTitle>{cardName}</S.CardContentTitle>
-
           <S.CardContentDate>
             <svg
               xmlns="http://www.w3.org/2000/svg"
